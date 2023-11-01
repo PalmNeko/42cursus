@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"unistd.h": "c",
+			"get_next_line.h": "c",
+			"stdlib.h": "c",
+			"stdbool.h": "c",
+			"get_next_line_bonus.h": "c",
+			"_ssize_t.h": "c",
+			"test.h": "c"
+		}
+	}
+}
