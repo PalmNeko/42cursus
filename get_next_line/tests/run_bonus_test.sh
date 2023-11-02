@@ -1,4 +1,4 @@
 #!/bin/sh
 
-make bonus
+make bonus || exit 1
 ./bonus

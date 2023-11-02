@@ -1,4 +1,4 @@
 #!/bin/sh
 
-make
+make || exit 1
 ./test

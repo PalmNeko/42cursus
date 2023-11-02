@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:47:22 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/02 13:57:17 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:20:56 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ TEST(read_str, basic)
 	str = read_str(-1, 10);
 	EXPECT_TRUE(str == NULL);
 	ASSERT_TRUE(system("leaks -q bonus >> leaks.log") == 0);
+	close(fd);
 }

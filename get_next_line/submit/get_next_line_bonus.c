@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:58:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/02 15:02:36 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:19:29 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*_get_next_line(char **str, int fd, char **leftovers, int *is_eof)
 
 	while (ft_strchr(*str, '\n') == NULL && *is_eof == 0)
 	{
-		joined = ft_strjoin_fd(*str, fd, is_eof);
+		joined = ft_strjoin_fd(*str, fd, is_eof, BUFFER_SIZE);
 		if (joined == NULL || ft_strlenchr(joined, '\0') == 0)
 			return (free_manager(&joined, NULL));
 		free_manager(str, NULL);
@@ -89,7 +89,7 @@ char	*_get_next_line(char **str, int fd, char **leftovers, int *is_eof)
 	return (line);
 }
 
-char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
+char	*ft_strjoin_fd(char *left, int fd, int *is_eof, size_t buf_size)
 {
 	size_t	count;
 	size_t	index;
@@ -97,7 +97,7 @@ char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
 	char	*right_iter;
 	char	*joined;
 
-	right = read_str(fd, BUFFER_SIZE);
+	right = read_str(fd, buf_size);
 	if (right == NULL)
 		return (free_manager(&right, NULL));
 	count = ft_strlenchr(left, '\0') + ft_strlenchr(right, '\0') + 1;
