@@ -1,55 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_manager.c                                     :+:      :+:    :+:   */
+/*   free_manager_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:56:15 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/02 13:18:21 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/02 14:55:09 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 #include "tyctest.h"
+#include "test_utils_bonus.h"
 #include <stdlib.h>
 #include <errno.h>
-
-static t_pl	*new_t_pl(void)
-{
-	t_pl	*tmp;
-
-	tmp = (t_pl *)malloc(sizeof(t_pl) * 1);
-	if (tmp == NULL)
-		return (NULL);
-	tmp->fd = 0;
-	tmp->next = NULL;
-	tmp->previous = NULL;
-	tmp->str = strdup("123");
-	return (tmp);
-}
-
-static t_pl	*create_test_pl(void)
-{
-	t_pl	*left;
-	t_pl	*right;
-	t_pl	*center;
-
-	left = new_t_pl();
-	if (left == NULL)
-		exit(1);
-	right = new_t_pl();
-	if (right == NULL)
-		exit(1);
-	center = new_t_pl();
-	if (center == NULL)
-		exit(1);
-	left->next = center;
-	center->previous = left;
-	center->next = right;
-	right->previous = center;
-	return (left);
-}
 
 TEST(free_manager, free_string)
 {
@@ -71,7 +36,7 @@ TEST(free_manager, free_t_pl_basic)
 		exit(1);
 	free_manager(NULL, &test);
 	EXPECT_TRUE(test == NULL);
-	ASSERT_TRUE(system("leaks -q bonus >> leaks.log") == 0);
+	ASSERT_TRUE(leak_check() == 0);
 }
 
 TEST(free_manager, free_t_pl_more_left)
@@ -87,7 +52,7 @@ TEST(free_manager, free_t_pl_more_left)
 	ASSERT_TRUE(test != NULL);
 	free_manager(NULL, &test);
 	ASSERT_TRUE(test == NULL);
-	ASSERT_TRUE(system("leaks -q bonus >> leaks.log") == 0);
+	ASSERT_TRUE(leak_check() == 0);
 }
 
 TEST(free_manager, free_t_pl_more_center)
@@ -104,7 +69,7 @@ TEST(free_manager, free_t_pl_more_center)
 	ASSERT_TRUE(test != NULL);
 	free_manager(NULL, &test);
 	ASSERT_TRUE(test == NULL);
-	ASSERT_TRUE(system("leaks -q bonus >> leaks.log") == 0);
+	ASSERT_TRUE(leak_check() == 0);
 }
 
 TEST(free_manager, free_t_pl_more_right)
@@ -122,5 +87,5 @@ TEST(free_manager, free_t_pl_more_right)
 	ASSERT_TRUE(test != NULL);
 	free_manager(NULL, &test);
 	ASSERT_TRUE(test == NULL);
-	ASSERT_TRUE(system("leaks -q bonus >> leaks.log") == 0);
+	ASSERT_TRUE(leak_check() == 0);
 }

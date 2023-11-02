@@ -6,19 +6,20 @@
 #    By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 15:45:27 by tookuyam          #+#    #+#              #
-#    Updated: 2023/11/01 17:32:50 by tookuyam         ###   ########.fr        #
+#    Updated: 2023/11/02 14:15:28 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = test
 CC = cc
-INCS = ../submit srcs/includes/tyctest
+INCS = ../submit srcs/includes/tyctest srcs/utils
 REQUIRED_FLAGS = -Wall -Wextra -Werror $(addprefix -I,$(INCS))
 CFLAGS = $(REQUIRED_FLAGS) $(DEBUG_CFLAGS)
 ifeq ($(MAKECMDGOALS), debug)
 	CFLAGS += -g -fsanitize=address
 endif
 
+SRCS += $(shell find srcs/utils -name "*.c")
 ifeq ($(MAKECMDGOALS), bonus)
 	SRCS += $(shell find ../submit -name "*_bonus.c")
 	SRCS += $(shell find srcs/bonus -name "*.c")
