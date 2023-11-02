@@ -6,19 +6,13 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:58:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/10/27 19:47:22 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:02:36 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 #include <stdlib.h>
 #include <unistd.h>
-
-static t_pl	*get_target_pl(t_pl **pool, int fd);
-static char	*_get_next_line(char **str, int fd, char **leftovers, int *is_eof);
-static char	*ft_strjoin_fd(char *left, int fd, int *is_eof);
-static char	*ft_substrchr(char const *str, char sep);
-void		print_pool_list(t_pl *pool);
 
 char	*get_next_line(int fd)
 {
@@ -48,7 +42,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-static t_pl	*get_target_pl(t_pl **pool, int fd)
+t_pl	*get_target_pl(t_pl **pool, int fd)
 {
 	t_pl	*target;
 
@@ -73,7 +67,7 @@ static t_pl	*get_target_pl(t_pl **pool, int fd)
 	return (target);
 }
 
-static char	*_get_next_line(char **str, int fd, char **leftovers, int *is_eof)
+char	*_get_next_line(char **str, int fd, char **leftovers, int *is_eof)
 {
 	char	*joined;
 	char	*line;
@@ -95,7 +89,7 @@ static char	*_get_next_line(char **str, int fd, char **leftovers, int *is_eof)
 	return (line);
 }
 
-static char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
+char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
 {
 	size_t	count;
 	size_t	index;
@@ -122,7 +116,7 @@ static char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
 	return (joined);
 }
 
-static char	*ft_substrchr(char const *str, char sep)
+char	*ft_substrchr(char const *str, char sep)
 {
 	char	*sub;
 	char	*find;

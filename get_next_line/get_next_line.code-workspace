@@ -12,7 +12,9 @@
 			"stdbool.h": "c",
 			"get_next_line_bonus.h": "c",
 			"_ssize_t.h": "c",
-			"test.h": "c"
+			"test.h": "c",
+			"test_utils_bonus.h": "c",
+			"tyctest.h": "c"
 		}
 	}
 }

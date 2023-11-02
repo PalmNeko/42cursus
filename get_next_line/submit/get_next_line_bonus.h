@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:09:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/10/27 19:50:13 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:01:31 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ typedef enum e_list_operator {
 }	t_lo;
 
 char	*get_next_line(int fd);
+t_pl	*get_target_pl(t_pl **pool, int fd);
+char	*_get_next_line(char **str, int fd, char **leftovers, int *is_eof);
+char	*ft_strjoin_fd(char *left, int fd, int *is_eof);
+char	*ft_substrchr(char const *str, char sep);
+
 
 size_t	ft_strlenchr(char const *s, char find);
 void	*free_manager(char **str1, t_pl **delone);
