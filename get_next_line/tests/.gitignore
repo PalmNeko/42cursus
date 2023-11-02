@@ -2,7 +2,7 @@
 *.o
 
 # create files
-./bonus
+/bonus
 ./test
 
 # log files
@@ -11,4 +11,3 @@ leaks.log
 # installed files
 srcs/includes
 srcs/libs
-
