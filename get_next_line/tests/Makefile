@@ -6,61 +6,50 @@
 #    By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 15:45:27 by tookuyam          #+#    #+#              #
-#    Updated: 2023/10/27 17:13:29 by tookuyam         ###   ########.fr        #
+#    Updated: 2023/11/01 17:32:50 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = test
 CC = cc
+INCS = ../submit srcs/includes/tyctest
 REQUIRED_FLAGS = -Wall -Wextra -Werror $(addprefix -I,$(INCS))
 CFLAGS = $(REQUIRED_FLAGS) $(DEBUG_CFLAGS)
 ifeq ($(MAKECMDGOALS), debug)
 	CFLAGS += -g -fsanitize=address
 endif
-SUBMIT_SRCS = \
-	$(addprefix ../submit/,\
-		get_next_line.c \
-		get_next_line_utils.c \
-	)
 
-BONUS_SRCS = \
-	$(addprefix ../submit/,\
-		get_next_line_bonus.c \
-		get_next_line_utils_bonus.c \
-	)
+ifeq ($(MAKECMDGOALS), bonus)
+	SRCS += $(shell find ../submit -name "*_bonus.c")
+	SRCS += $(shell find srcs/bonus -name "*.c")
+else
+	SRCS += $(shell find ../submit -name "*.c" | grep -E -v ".*_bonus.c")
+	SRCS += $(shell find srcs/mandatory -name "*.c")
+endif
 
-TEST_SRCS = $(shell find . -name "*.c")
+LIBS = $(shell find srcs/libs -name "*.a")
 
-SRCS = \
-	$(SUBMIT_SRCS) \
-	$(TEST_SRCS)
+HEADERS = $(shell find ../ -name "*.h")
 
-HEADERS = \
-	$(addprefix ../submit/,\
-		get_next_line.h \
-	)
-
-INCS = ../submit
 OBJS = $(SRCS:.c=.o)
-RELINK_GURAD_FLIES = $(BONUS_RULE)
-CLEAN_FILES = $(OBJS) $(BONUS:.c=.o) $(RELINK_GURAD_FLIES)
+CLEAN_FILES = bonus
 
 all: $(NAME) $(BONUS_RULE)
 
 $(NAME): $(OBJS) $(HEADERS)
-	$(CC) $(CFLAGS) -o $(NAME) $(filter %.o,$^)
+	$(CC) $(CFLAGS) -o $(NAME) $(filter %.o,$^) $(LIBS)
 
-bonus: $(BONUS_SRCS:.c=.o) $(TEST_SRCS:.c=.o) $(HEADERS)
-	$(CC) $(CFLAGS) -o $(NAME) $(filter %.o,$^)
+bonus: $(SRCS:.c=.o) $(HEADERS)
+	$(CC) $(CFLAGS) -o $@ $(filter %.o,$^) $(LIBS)
 
 debug: fclean bonus
 
 %.o: %.c
-	echo $^
 	$(CC) $(CFLAGS) -o $@ -c $^
 
 clean:
 	$(RM) $(CLEAN_FILES)
+	$(RM) $(shell find .. -name "*.o")
 
 fclean: clean
 	$(RM) $(NAME)

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:14:03 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/10/27 19:50:32 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/02 13:17:58 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	*free_manager(char **str1, t_pl **delone)
 		free_manager(&tmp->str, NULL);
 		if (tmp->previous != NULL)
 			tmp->previous->next = tmp->next;
-		else if (tmp->next != NULL)
+		if (tmp->next != NULL)
 			tmp->next->previous = tmp->previous;
 		if (tmp->next != NULL)
 			(*delone) = tmp->next;
