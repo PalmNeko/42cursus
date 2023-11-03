@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:03:50 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/03 14:15:57 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:44:38 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ t_pl	*new_t_pl(void);
 t_pl	*create_test_pl(void);
 int		leak_check(void);
 int		_gnl_test(int fd, char *to_be);
+int		gnl_test(int fd, char *to_be);
 
 #endif

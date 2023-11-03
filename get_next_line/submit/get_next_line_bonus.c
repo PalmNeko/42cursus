@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:58:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/03 15:00:19 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:50:09 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,8 @@ char	*get_next_line(int fd)
 	if (target == NULL)
 		return (pool_list_utils(&pool, NULL, 0, pl_clear));
 	line = _get_next_line(&(target->str), fd, &leftovers);
-	if (line == NULL)
-		return (free_manager(NULL, &pool));
-	else if (line == NULL)
-		return (pool_list_utils(&pool, NULL, 0, pl_clear));
-	if (target != NULL && target->previous == NULL)
-		pool = target;
+	if (line == NULL || leftovers == NULL)
+		free_manager(NULL, &pool);
 	if (line == NULL)
 		return (NULL);
 	free_manager(&(target->str), NULL);
@@ -86,6 +82,11 @@ char	*_get_next_line(char **str, int fd, char **leftovers)
 	line = ft_substrchr(*str, '\n');
 	if (line == NULL)
 		return (NULL);
+	if (is_eof != 0)
+	{
+		*leftovers = NULL;
+		return (line);
+	}
 	*leftovers = ft_substrchr((*str) + ft_strlenchr(line, '\0'), '\0');
 	if (*leftovers == NULL)
 		return (free_manager(&line, NULL));

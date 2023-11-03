@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:14:43 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/03 15:21:41 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:37:23 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ TEST(_get_next_line, singleline_endline)
 {
 	int		fd;
 
-	fprintf(stderr, "%s:%d %d\n", __FILE__, __LINE__, BUFFER_SIZE);
 	fd = open(FILE_NAME, O_RDONLY);
 	_gnl_test(-1, NULL); // 初期化
 	ASSERT_EQ(_gnl_test(fd, "123403923\n"), 0);
