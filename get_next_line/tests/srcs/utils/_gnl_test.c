@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:16:37 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/02 17:18:30 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:03:35 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-int	_gnl_test(int fd, char *to_be, int is_eof)
+int	_gnl_test(int fd, char *to_be)
 {
 	static char	*pool;
 	char		*line;
 	char		*leftovers;
 	int			comp_result;
-	int			inner_is_eof;
 
 	if (pool == NULL)
 		pool = ft_substrchr("", 'a');
@@ -34,21 +33,13 @@ int	_gnl_test(int fd, char *to_be, int is_eof)
 		pool = NULL;
 		return (0);
 	}
-	inner_is_eof = 0;
-	line = _get_next_line(&pool, fd, &leftovers, &inner_is_eof);
+	line = _get_next_line(&pool, fd, &leftovers);
+	free(pool);
 	if (line != NULL)
-	{
-		free(pool);
 		pool = leftovers;
-	}
 	else
-	{
-		free(pool);
 		pool = NULL;
-	}
-	if (inner_is_eof != is_eof)
-		comp_result = 1;
-	else if (line == NULL && to_be == NULL)
+	if (line == NULL && to_be == NULL)
 		comp_result = 0;
 	else if (line == NULL || to_be == NULL)
 		comp_result = 2;

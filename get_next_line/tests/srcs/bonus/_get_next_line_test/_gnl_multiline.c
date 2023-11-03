@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _gnl_multiline_endline.c                           :+:      :+:    :+:   */
+/*   _gnl_multiline.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 13:31:30 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/03 14:17:11 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/03 13:37:28 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/03 15:00:37 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 #include "tyctest.h"
 #include "test_utils_bonus.h"
 #include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-#define FILE_NAME "files/gnl/multiline_endline.txt"
+#define FILE_NAME "files/gnl/multiline.txt"
 
-TEST(_get_next_line, multiline_endline)
+TEST(_get_next_line, multiline)
 {
 	int		fd;
 
@@ -32,8 +34,9 @@ TEST(_get_next_line, multiline_endline)
 	ASSERT_EQ(_gnl_test(fd, "0123456789\n"), 0);
 	ASSERT_EQ(_gnl_test(fd, "0123456789\n"), 0);
 	ASSERT_EQ(_gnl_test(fd, "0123456789\n"), 0);
-	ASSERT_EQ(_gnl_test(fd, "0123456789\n"), 0);
+	ASSERT_EQ(_gnl_test(fd, "0123456789"), 0);
 	ASSERT_EQ(_gnl_test(fd, NULL), 0);
 	ASSERT_TRUE(leak_check() == 0);
 	_gnl_test(-1, NULL); // 初期化
+	close(fd);
 }
