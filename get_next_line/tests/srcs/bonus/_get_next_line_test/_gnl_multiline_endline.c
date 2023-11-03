@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 13:31:30 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/03 14:17:11 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:05:13 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ TEST(_get_next_line, multiline_endline)
 	ASSERT_EQ(_gnl_test(fd, NULL), 0);
 	ASSERT_TRUE(leak_check() == 0);
 	_gnl_test(-1, NULL); // 初期化
+	close(fd);
 }
