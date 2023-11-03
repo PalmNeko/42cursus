@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:58:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/02 15:19:29 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:00:19 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char	*get_next_line(int fd)
 	static t_pl	*pool;
 	char		*line;
 	char		*leftovers;
-	int			is_eof;
 	t_pl		*target;
 
 	if (read(fd, NULL, 0) < 0)
@@ -27,9 +26,8 @@ char	*get_next_line(int fd)
 	target = get_target_pl(&pool, fd);
 	if (target == NULL)
 		return (pool_list_utils(&pool, NULL, 0, pl_clear));
-	is_eof = 0;
-	line = _get_next_line(&(target->str), fd, &leftovers, &is_eof);
-	if (line == NULL && is_eof != 0)
+	line = _get_next_line(&(target->str), fd, &leftovers);
+	if (line == NULL)
 		return (free_manager(NULL, &pool));
 	else if (line == NULL)
 		return (pool_list_utils(&pool, NULL, 0, pl_clear));
@@ -67,14 +65,19 @@ t_pl	*get_target_pl(t_pl **pool, int fd)
 	return (target);
 }
 
-char	*_get_next_line(char **str, int fd, char **leftovers, int *is_eof)
+/**
+ * If read eof, free `str` and assign NULL.
+ */
+char	*_get_next_line(char **str, int fd, char **leftovers)
 {
 	char	*joined;
 	char	*line;
+	int		is_eof;
 
-	while (ft_strchr(*str, '\n') == NULL && *is_eof == 0)
+	is_eof = 0;
+	while (ft_strchr(*str, '\n') == NULL && is_eof == 0)
 	{
-		joined = ft_strjoin_fd(*str, fd, is_eof, BUFFER_SIZE);
+		joined = ft_strjoin_fd(*str, fd, &is_eof, BUFFER_SIZE);
 		if (joined == NULL || ft_strlenchr(joined, '\0') == 0)
 			return (free_manager(&joined, NULL));
 		free_manager(str, NULL);
