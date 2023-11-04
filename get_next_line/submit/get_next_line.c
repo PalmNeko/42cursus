@@ -6,17 +6,13 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:58:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/10/22 16:44:30 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/04 12:39:21 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdlib.h>
 #include <unistd.h>
-
-static char		*_get_next_line(char **str, int fd, char **leftovers);
-static char		*ft_strjoin_fd(char *left, int fd, int *is_eof);
-static char		*ft_substrchr(char const *str, char sep);
 
 char	*get_next_line(int fd)
 {
@@ -28,18 +24,16 @@ char	*get_next_line(int fd)
 		pool = ft_substrchr("", '\0');
 	if (pool == NULL)
 		return (NULL);
+	leftovers = NULL;
 	line = _get_next_line(&pool, fd, &leftovers);
-	if (line == NULL)
-	{
-		pool = free_manager(&pool);
-		return (NULL);
-	}
 	free_manager(&pool);
 	pool = leftovers;
+	if (line == NULL)
+		pool = free_manager(&pool);
 	return (line);
 }
 
-static char	*_get_next_line(char **str, int fd, char **leftovers)
+char	*_get_next_line(char **str, int fd, char **leftovers)
 {
 	char	*joined;
 	int		is_eof;
@@ -48,8 +42,7 @@ static char	*_get_next_line(char **str, int fd, char **leftovers)
 	is_eof = 0;
 	while (ft_strchr(*str, '\n') == NULL && is_eof == 0)
 	{
-		is_eof = 0;
-		joined = ft_strjoin_fd(*str, fd, &is_eof);
+		joined = ft_strjoin_fd(*str, fd, &is_eof, BUFFER_SIZE);
 		if (joined == NULL || ft_strlenchr(joined, '\0') == 0)
 			return (free_manager(&joined));
 		free_manager(str);
@@ -58,13 +51,18 @@ static char	*_get_next_line(char **str, int fd, char **leftovers)
 	line = ft_substrchr(*str, '\n');
 	if (line == NULL)
 		return (NULL);
+	if (is_eof != 0)
+	{
+		*leftovers = NULL;
+		return (line);
+	}
 	*leftovers = ft_substrchr((*str) + ft_strlenchr(line, '\0'), '\0');
 	if (*leftovers == NULL)
 		return (free_manager(&line));
 	return (line);
 }
 
-static char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
+char	*ft_strjoin_fd(char *left, int fd, int *is_eof, size_t buf_size)
 {
 	size_t	count;
 	size_t	index;
@@ -72,10 +70,9 @@ static char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
 	char	*right_iter;
 	char	*joined;
 
-	right = read_str(fd, BUFFER_SIZE);
+	right = read_str(fd, buf_size);
 	if (right == NULL)
 		return (free_manager(&right));
-	*is_eof = (ft_strlenchr(right, '\0') == 0);
 	count = ft_strlenchr(left, '\0') + ft_strlenchr(right, '\0') + 1;
 	joined = (char *)malloc(sizeof(char) * count);
 	if (joined == NULL)
@@ -87,11 +84,12 @@ static char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
 	while (*right_iter != '\0')
 		joined[index++] = *(right_iter++);
 	joined[index] = '\0';
+	*is_eof = (ft_strlenchr(right, '\0') == 0);
 	free_manager(&right);
 	return (joined);
 }
 
-static char	*ft_substrchr(char const *str, char sep)
+char	*ft_substrchr(char const *str, char sep)
 {
 	char	*sub;
 	char	*find;

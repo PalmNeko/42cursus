@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:14:03 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/10/22 16:43:23 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/04 12:40:55 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlenchr(char const *s, char find)
 	return (len);
 }
 
-char	*free_manager(char **str1)
+void	*free_manager(char **str1)
 {
 	if (str1 != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:58:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/03 17:50:09 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/04 12:49:49 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ char	*get_next_line(int fd)
 		return (NULL);
 	target = get_target_pl(&pool, fd);
 	if (target == NULL)
-		return (pool_list_utils(&pool, NULL, 0, pl_clear));
-	line = _get_next_line(&(target->str), fd, &leftovers);
-	if (line == NULL || leftovers == NULL)
-		free_manager(NULL, &pool);
-	if (line == NULL)
 		return (NULL);
+	leftovers = NULL;
+	line = _get_next_line(&(target->str), fd, &leftovers);
 	free_manager(&(target->str), NULL);
 	target->str = leftovers;
+	if (line == NULL)
+		free_manager(NULL, &pool);
 	return (line);
 }
 
