@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:09:06 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/03 17:55:51 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/04 18:15:11 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stddef.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100000000 
+#  define BUFFER_SIZE 10
 # endif
 
 typedef struct s_pool_list {

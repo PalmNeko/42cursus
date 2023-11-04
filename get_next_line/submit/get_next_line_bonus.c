@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:58:39 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/04 12:49:49 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/04 18:32:16 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,13 @@ char	*get_next_line(int fd)
 	static t_pl	*pool;
 	char		*line;
 	char		*leftovers;
-	t_pl		*target;
 
-	if (read(fd, NULL, 0) < 0)
-		return (NULL);
-	target = get_target_pl(&pool, fd);
-	if (target == NULL)
+	if (get_target_pl(&pool, fd) == NULL)
 		return (NULL);
 	leftovers = NULL;
-	line = _get_next_line(&(target->str), fd, &leftovers);
-	free_manager(&(target->str), NULL);
-	target->str = leftovers;
+	line = _get_next_line(&(pool->str), fd, &leftovers);
+	free_manager(&(pool->str), NULL);
+	pool->str = leftovers;
 	if (line == NULL)
 		free_manager(NULL, &pool);
 	return (line);
@@ -52,11 +48,11 @@ t_pl	*get_target_pl(t_pl **pool, int fd)
 		if (*pool != NULL && target != NULL)
 			pool_list_utils(pool, &target, 0, pl_add_front);
 	}
+	*pool = target;
 	if (target->str == NULL)
 		target->str = ft_substrchr("", '\0');
 	if (target->str == NULL)
-		return (free_manager(NULL, &target));
-	*pool = target;
+		return (free_manager(NULL, pool));
 	return (target);
 }
 
@@ -102,7 +98,7 @@ char	*ft_strjoin_fd(char *left, int fd, int *is_eof, size_t buf_size)
 
 	right = read_str(fd, buf_size);
 	if (right == NULL)
-		return (free_manager(&right, NULL));
+		return (NULL);
 	count = ft_strlenchr(left, '\0') + ft_strlenchr(right, '\0') + 1;
 	joined = (char *)malloc(sizeof(char) * count);
 	if (joined == NULL)
