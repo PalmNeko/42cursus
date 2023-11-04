@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:20:42 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/03 17:32:56 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/04 13:41:17 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,8 @@ TEST(get_next_line, open_error_open)
 	ASSERT_EQ(gnl_test(fd2, "0123456789\n"), 0);
 	ASSERT_EQ(gnl_test(fd, "bbbbbbbbbb\n"), 0);
 	ASSERT_EQ(gnl_test(fd2, "012345678\n"), 0);
-	if (BUFFER_SIZE > 100)
-	{
-		while (gnl_test(fd, NULL) != 0)
-			;
-	}
+	while (gnl_test(fd, NULL) != 0)
+		;
 	ASSERT_EQ(gnl_test(fd, NULL), 0);
 	close(fd);
 	ASSERT_EQ(gnl_test(fd2, "90123456789\n"), 0);
