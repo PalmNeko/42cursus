@@ -15,7 +15,7 @@ typedef struct s_conversion_specification
 	int minimum_field_width; // 最小フィールドの値
 	int is_specified_precision; // 精度が指定されているかどうか。
 	int precision; // 精度の値
-} t_conversion_specification;
+} t_conv_specification;
 ```
 ## description
 

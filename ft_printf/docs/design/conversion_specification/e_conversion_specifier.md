@@ -15,7 +15,7 @@ typedef enum e_conversion_specifier
 	CS_LOWER_X, // %x
 	CS_UPPER_X, // %X
 	CS_PERCENT, // %%
-} t_conversion_specifier;
+} t_conv_specifier;
 ```
 
 ## description

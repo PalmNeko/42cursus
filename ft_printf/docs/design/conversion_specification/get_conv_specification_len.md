@@ -1,9 +1,9 @@
-# get_conversion_specification_len
+# get_conv_specification_len
 
 # prototype
 
 ```c
-int get_conversion_specification_len(const char *format);
+int get_conv_specification_len(const char *format);
 ```
 
 # return value

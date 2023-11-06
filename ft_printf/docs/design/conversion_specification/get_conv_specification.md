@@ -1,9 +1,9 @@
-# get_conversion_specification
+# get_conv_specification
 
 ## prototype
 
 ```c
-t_conversion_specification *get_conversion_specification(const char *format);
+t_conv_specification *get_conv_specification(const char *format);
 ```
 
 ## 戻り値

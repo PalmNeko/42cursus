@@ -4,7 +4,7 @@
 ## prototype
 
 ```c
-int	print_pointer_fd(int fd, t_conversion_specification *cs, va_list args);
+int	print_pointer_fd(int fd, t_conv_specification *cs, va_list args);
 ```
 
 ## return value

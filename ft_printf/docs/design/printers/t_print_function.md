@@ -3,7 +3,7 @@
 # type
 
 ```c
-typedef int (*t_print_functioin)(int, t_conversion_specification*, va_list);
+typedef int (*t_print_functioin)(int, t_conv_specification*, va_list);
 ```
 
 # description
