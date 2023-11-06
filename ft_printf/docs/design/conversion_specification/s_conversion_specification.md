@@ -6,7 +6,7 @@
 typedef struct s_conversion_specification
 {
 	t_conversion_specifier conversion_specifier; // 変換指定子
-	int flag_shape; // ＃フラグが指定されているかどうか。
+	int flag_sharp; // ＃フラグが指定されているかどうか。
 	int	flag_minus; // -フラグが指定されているかどうか。
 	int	flag_plus; // + フラグが指定されているかどうか。
 	int	flag_zero; // 0 フラグが指定されているかどうか。
