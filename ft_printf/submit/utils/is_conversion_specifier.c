@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_conversion_specifier.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 17:01:15 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/05 17:03:36 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/06 13:14:52 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/06 13:23:38 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	main(void)
+/** is it equal to conversion specifier character.
+ * @param c check character.
+ * @return return non-zero if `No`, return zero if `Yes`.
+*/
+int	is_conversion_specifier(char c)
 {
-	ft_printf("%s\n", "123");
+	if (c == 's'
+		|| c == 'd'
+		|| c == 'i'
+		|| c == 'u'
+		|| c == 'c'
+		|| c == 'p'
+		|| c == '%'
+		|| c == 'x'
+		|| c == 'X')
+		return (!0);
 	return (0);
 }
