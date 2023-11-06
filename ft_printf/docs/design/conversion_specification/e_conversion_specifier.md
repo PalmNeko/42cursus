@@ -5,6 +5,7 @@
 ```c
 typedef enum e_conversion_specifier
 {
+	CS_NONE, // 何もない。
 	CS_LOWER_S, // %s
 	CS_LOWER_P, // %p
 	CS_LOWER_C, // %c
