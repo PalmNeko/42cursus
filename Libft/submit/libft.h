@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:49:45 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 17:03:58 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:26:52 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int		ft_abs(int i);
 void	ft_strrev(char *str);
 void	ft_swap_chr(char *a, char *b);
 char	*ft_utoa(unsigned int n);
+char	*ft_utoa_base_str(unsigned int n, const char *base_str);
 
 #endif
