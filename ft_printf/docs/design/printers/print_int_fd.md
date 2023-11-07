@@ -18,3 +18,4 @@ int	print_int_fd(int fd, t_conv_specification *cs, va_list args);
 * 内部的に`int`に変換される。
 * fdに符号つき10進数として出力する。
 * 精度が指定されている場合は、`0`フラグは無視される。
+* `-`フラグが指定されている場合は、`0`フラグは無視される。
