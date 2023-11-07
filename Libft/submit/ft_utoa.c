@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 17:31:18 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 17:01:43 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/10/07 13:56:32 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/07 16:59:53 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 #include <stddef.h>
-#include <unistd.h>
 
-void	ft_putstr_fd(const char *s, int fd)
+char	*ft_utoa(unsigned int n)
 {
-	size_t	len;
+	char		num_str[15];
+	const char	*base_chr = "0123456789";
+	const int	base = 10;
+	int			sign;
+	size_t		index;
 
-	len = ft_strlen(s);
-	write(fd, s, len);
-	return ;
+	sign = 0;
+	index = 0;
+	if (n == 0)
+		num_str[index++] = '0';
+	while (n != 0)
+	{
+		num_str[index++] = base_chr[ft_abs(n % base)];
+		n /= base;
+	}
+	num_str[index] = '\0';
+	ft_strrev(num_str);
+	return (ft_strdup(num_str));
 }

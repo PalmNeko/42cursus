@@ -6,7 +6,7 @@
 #    By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 17:19:34 by tookuyam          #+#    #+#              #
-#    Updated: 2023/10/16 18:42:23 by tookuyam         ###   ########.fr        #
+#    Updated: 2023/11/07 17:05:13 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,11 @@ SRCS = \
 
 MY_SRC = \
 	ft_strnlen.c \
-	ft_strndup.c
+	ft_strndup.c \
+	ft_abs.c \
+	ft_strrev.c \
+	ft_swap_chr.c \
+	ft_utoa.c
 
 BONUS = \
 	ft_lstnew_bonus.c \

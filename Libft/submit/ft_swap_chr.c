@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_swap_chr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 17:31:18 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 17:01:43 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/07 16:54:20 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/07 16:54:25 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stddef.h>
-#include <unistd.h>
-
-void	ft_putstr_fd(const char *s, int fd)
+void	ft_swap_chr(char *a, char *b)
 {
-	size_t	len;
+	char	tmp;
 
-	len = ft_strlen(s);
-	write(fd, s, len);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 	return ;
 }
