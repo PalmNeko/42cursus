@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:49:45 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 17:26:52 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/07 19:16:14 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,11 @@ void	ft_strrev(char *str);
 void	ft_swap_chr(char *a, char *b);
 char	*ft_utoa(unsigned int n);
 char	*ft_utoa_base_str(unsigned int n, const char *base_str);
+int		ft_isspace(char c);
+long	ft_strtol(const char *str, char **endptr, int base);
+long	ft_mul_l(long value, long mul_value);
+long	ft_add_l(long value, long add_value);
+int		ft_islower(int c);
+int		ft_isupper(int c);
 
 #endif

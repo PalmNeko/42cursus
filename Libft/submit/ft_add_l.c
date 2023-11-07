@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_add_l.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 18:55:51 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 18:26:12 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/07 18:42:01 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/07 18:42:27 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <errno.h>
+#include <limits.h>
 
-int	ft_atoi(const char *str)
+long	ft_add_l(long value, long add_value)
 {
-	return (ft_strtol(str, NULL, 10));
+	if (add_value > 0 && value > LONG_MAX - add_value)
+	{
+		errno = ERANGE;
+		return (LONG_MAX);
+	}
+	else if (add_value < 0 && value < LONG_MIN - add_value)
+	{
+		errno = ERANGE;
+		return (LONG_MIN);
+	}
+	return (value + add_value);
 }

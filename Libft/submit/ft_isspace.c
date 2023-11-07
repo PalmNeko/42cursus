@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 18:55:51 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 18:26:12 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/07 18:11:41 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/07 18:11:56 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_atoi(const char *str)
+/**
+ * If c is '\t', '\n', '\v', '\f', '\r' or ' ', return non-zero.
+ * else, return zero.
+ */
+int	ft_isspace(char c)
 {
-	return (ft_strtol(str, NULL, 10));
+	if (('\t' <= c && c <= '\r') || c == ' ')
+		return (1);
+	else
+		return (0);
 }
