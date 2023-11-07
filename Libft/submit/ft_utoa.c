@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 13:56:32 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 16:59:53 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:27:53 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ char	*ft_utoa(unsigned int n)
 	char		num_str[15];
 	const char	*base_chr = "0123456789";
 	const int	base = 10;
-	int			sign;
 	size_t		index;
 
-	sign = 0;
 	index = 0;
 	if (n == 0)
 		num_str[index++] = '0';
