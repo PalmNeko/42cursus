@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:14:01 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/05 15:32:12 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:51:19 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	main(void)
 	printf(" % 012.i\n", -103);
 	printf(" % 012.5i\n", -103);
 	printf(" % 12.5i\n", -103);
-	printf(" % -12.5i\n", -103);
+	printf(" % +-12.5i\n", -103);
 	// %u
 	printf("\n%%u:\n");
 	printf(" %u\n", -1);
@@ -121,6 +121,7 @@ int	main(void)
 	printf(" %-012.u\n", 103);
 	printf(" % 012.5u\n", 103);
 	printf(" %#12.5u\n", 103);
+	printf(" %+12.5u\n", 103);
 	// %x
 	printf("\n%%x:\n");
 	printf(" %x\n", -1);
@@ -166,6 +167,11 @@ int	main(void)
 	printf(" %-012s\n", "abcdefg");
 	printf(" % 012.5s\n", "abcdefg");
 	printf(" % 12.5s\n", "abcdefg");
+	printf(" % 12.00005s\n", "abcdefg");
+	printf(" % 12.00005s\n", NULL);
+	printf(" % 012.5s\n", NULL);
+	printf(" % 012.1s\n", NULL);
+	printf(" %-012.1s\n", NULL);
 	printf(" %#s\n", "abcdefg");
 	// %%
 	printf("\n%%%%:\n");
@@ -203,5 +209,16 @@ int	main(void)
 	fprintf(stdout, " %+.0s\n", "123221");
 	fprintf(stdout, " %+18.15s\n", "123221");
 	fprintf(stdout, " %+18.s\n", "123221");
+	// min width check
+	fprintf(stdout, "\n min width check\n");
+	fprintf(stdout, "@%-12d\n", 5);
+	fprintf(stdout, "@%-+12d\n", 5);
+	fprintf(stdout, "@%- 12d\n", 5);
+	fprintf(stdout, "@%12d\n", 5);
+	fprintf(stdout, "@%+12d\n", 5);
+	fprintf(stdout, "@% 12d\n", 5);
+	fprintf(stdout, "@%12s\n", "abc");
+	fprintf(stdout, "@%+12s\n", "abc");
+	fprintf(stdout, "@% 12s\n", "abc");
 	return (0);
 }

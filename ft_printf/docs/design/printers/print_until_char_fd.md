@@ -3,7 +3,7 @@
 ## prototype
 
 ```c
-int	print_until_char_fd(const char *str);
+int	print_until_char_fd(int fd, const char *str, char c);
 ```
 
 ## return value

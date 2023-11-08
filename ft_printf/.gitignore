@@ -1,4 +1,6 @@
 
 *.o
+*.d
 *.out
+/test
 submit/Libft
