@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:49:40 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 14:21:25 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:40:35 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ t_conv_specification	*new_t_conv_specification(void);
 t_conv_specification	*get_conv_specification(const char *format);
 int						get_conv_specification_len(const char *format);
 void					free_t_conv_specification(t_conv_specification *ptr);
+int						check_conv_specification_format(const char *cs_format);
 
 #endif

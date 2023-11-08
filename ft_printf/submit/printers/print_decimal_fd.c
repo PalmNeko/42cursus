@@ -6,11 +6,12 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:17:14 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 16:45:10 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:01:21 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
+#include <stdlib.h>
 #include "conversion_specification.h"
 #include "libft.h"
 #include "string_util.h"

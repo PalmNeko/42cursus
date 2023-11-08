@@ -6,12 +6,13 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:02:03 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 16:10:46 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:02:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <limits.h>
+#include <stdlib.h>
 #include "string_util.h"
 #include "libft.h"
 

@@ -6,12 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:45:37 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 17:49:52 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:06:04 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <limits.h>
+#include "libft.h"
+#include "string_util.h"
 
 int	right_aligned_print(int fd, const char *str, size_t min_len, int pad_zero)
 {

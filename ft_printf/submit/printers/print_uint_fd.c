@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_uiint_fd.c                                   :+:      :+:    :+:   */
+/*   print_uint_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:31:31 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 17:34:40 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:01:51 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
+#include <stdlib.h>
 #include "libft.h"
 #include "conversion_specification.h"
 #include "string_util.h"
@@ -20,7 +21,6 @@ int	print_uint_fd(int fd, t_conv_specification *cs, va_list args)
 {
 	char	*num_str;
 	char	*pad_zero_str;
-	char	*joined_sign_str;
 	int		print_len;
 
 	num_str = ft_utoa(va_arg(args, unsigned int));
@@ -32,6 +32,6 @@ int	print_uint_fd(int fd, t_conv_specification *cs, va_list args)
 		return (-1);
 	cs->flag_zero = 0;
 	print_len = t_conv_aligned_print(fd, cs, pad_zero_str);
-	free(joined_sign_str);
+	free(pad_zero_str);
 	return (print_len);
 }

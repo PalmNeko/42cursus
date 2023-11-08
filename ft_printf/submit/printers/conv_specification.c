@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_t_conv_specification.c                  :+:      :+:    :+:   */
+/*   conv_specification.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 14:14:31 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 14:16:10 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/08 13:52:30 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/08 15:57:48 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "conversion_specification.h"
+#include <limits.h>
+#include <stddef.h>
+#include <unistd.h>
 
-void	free_t_conv_specification(t_conv_specification *ptr)
+int	print_until_char_fd(int fd, const char *str, char c)
 {
-	free(ptr);
-	return ;
+	size_t	len;
+
+	len = 0;
+	while (str[len] != c && str[len] != '\0' && len <= INT_MAX)
+		len++;
+	if (len > INT_MAX && str[len] != c && str[len] != '\0')
+		return (-1);
+	write(fd, str, len);
+	return ((int)len);
 }

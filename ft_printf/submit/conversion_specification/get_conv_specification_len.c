@@ -28,7 +28,7 @@ int	get_conv_specification_len(const char *format)
 	index = 0;
 	if (format[index++] != '%')
 		return (-1);
-	while (is_flag(format[index]))
+	while (is_flags(format[index]))
 		index++;
 	while ('1' <= format[index] && format[index] <= '9')
 		index++;
