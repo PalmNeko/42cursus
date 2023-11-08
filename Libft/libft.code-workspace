@@ -22,7 +22,8 @@
 			"libc.h": "c",
 			"stdio.h": "c",
 			"regex.h": "c",
-			"libft.h": "c"
+			"libft.h": "c",
+			"errno.h": "c"
 		}
 	}
 }
