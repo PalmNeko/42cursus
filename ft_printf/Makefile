@@ -6,7 +6,7 @@
 #    By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 16:07:08 by tookuyam          #+#    #+#              #
-#    Updated: 2023/11/08 16:33:56 by tookuyam         ###   ########.fr        #
+#    Updated: 2023/11/09 13:20:26 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,17 @@ DEPENDS = $(SRCS:.c=.d)
 EXCLUDE_INC_DIRS = "./sample_printf" "./docs" "./submit/.git" "./submit/.git/*"
 INC_DIRS = $(shell find . -type d $(addprefix -not -path , $(EXCLUDE_INC_DIRS)))
 CFLAGS += $(addprefix -I, $(INC_DIRS))
-LIB_FT_PRINTF = submit/libftprintf.a
+LIBS_TYCTEST = ./libs/libtyctest_main.a ./libs/libtyctest.a
 
 all: $(NAME)
 
 -include $(DEPENDS)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBS_TYCTEST)
 	$(CC) $(CFLAGS) -o $(NAME) $^
+
+check: $(NAME)
+	./$(NAME)
 
 clean:
 	$(RM) $(OBJS) $(DEPENDS)

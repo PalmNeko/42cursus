@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.c                                           :+:      :+:    :+:   */
+/*   get_conv_specification_len_test.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:58:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:22 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/09 13:28:32 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/09 13:29:56 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <limits.h>
+#include "tyctest.h"
+#include "conversion_specification.h"
 
-int	main(void)
+TEST(get_conv_specification_len, basic)
 {
-	printf("%d\n",
-		printf("%04d\n", 3));
-	return(0);
+	EXPECT_EQ(get_conv_specification_len("%c %c %c"), 2);
 }

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:03:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 17:03:20 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:26:57 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	repeat_print_fd(int fd, const char *str, int repeat_cnt)
 	cnt = 0;
 	while (cnt < repeat_cnt)
 	{
-		ft_putstr_fd(str, fd);
+		if (ft_putstr_fd(str, fd) < 0)
+			return (-1);
 		cnt++;
 	}
 	return (print_len * repeat_cnt);

@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.c                                           :+:      :+:    :+:   */
+/*   ft_printf_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:58:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:22 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/09 13:26:23 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/09 15:17:40 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "tyctest.h"
+#include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
 
-int	main(void)
+TEST(ft_printf, francinette)
 {
-	printf("%d\n",
-		printf("%04d\n", 3));
-	return(0);
+	*failure_flag = 0;
+	printf("%d\n", ft_printf("\001\002\007\v\010\f\r\n"));
 }

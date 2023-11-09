@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:57:17 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 17:44:37 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:26:31 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	left_aligned_print(int fd, const char *str, size_t min_len)
 	len = ft_strlen(str);
 	if (len > INT_MAX || min_len > INT_MAX)
 		return (-1);
-	ft_putstr_fd(str, fd);
+	if (ft_putstr_fd(str, fd) < 0)
+		return (-1);
 	if (len <= min_len)
 		len += repeat_print_fd(fd, " ", (int)(min_len - len));
 	if (len > INT_MAX)

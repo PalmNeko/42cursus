@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.c                                           :+:      :+:    :+:   */
+/*   terminal_coloring.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:58:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:22 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/10/31 15:51:58 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/10/31 17:35:24 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <limits.h>
+#ifndef TERMINAL_COLORING_H
+# define TERMINAL_COLORING_H
 
-int	main(void)
-{
-	printf("%d\n",
-		printf("%04d\n", 3));
-	return(0);
-}
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define BLUE "\033[34m"
+# define DARK_BLUE "\033[2;34m"
+# define CL "\033[m"
+
+#endif

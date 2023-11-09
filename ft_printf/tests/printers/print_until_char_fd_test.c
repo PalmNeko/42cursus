@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.c                                           :+:      :+:    :+:   */
+/*   print_until_char_fd_test.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:58:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:22 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/09 14:42:23 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/09 15:12:47 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <limits.h>
-
-int	main(void)
-{
-	printf("%d\n",
-		printf("%04d\n", 3));
-	return(0);
-}
+#include "tyctest.h"
+#include "printers.h"

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.c                                           :+:      :+:    :+:   */
+/*   register_macro.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:58:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:22 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/10/30 11:35:33 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/10/31 16:12:38 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <limits.h>
+#ifndef REGISTER_MACRO_H
+# define REGISTER_MACRO_H
 
-int	main(void)
-{
-	printf("%d\n",
-		printf("%04d\n", 3));
-	return(0);
-}
+#include "register_functions.h"
+
+/**
+ * register test function
+ * @param TITLE raw string(not char *)
+ * @param SECTION raw string(not char)
+ */
+# define REGISTER_TEST(TITLE, SECTION) \
+	__attribute__((constructor)) \
+	static void register_ ## TITLE ## SECTION (void) { \
+		register_func( TITLE ## SECTION, #TITLE, #SECTION ); \
+	}
+
+#endif

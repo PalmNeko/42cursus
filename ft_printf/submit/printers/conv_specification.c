@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:52:30 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 15:57:48 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:19:25 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	print_until_char_fd(int fd, const char *str, char c)
 		len++;
 	if (len > INT_MAX && str[len] != c && str[len] != '\0')
 		return (-1);
-	write(fd, str, len);
+	if (write(fd, str, len) < 0)
+		return (-1);
 	return ((int)len);
 }

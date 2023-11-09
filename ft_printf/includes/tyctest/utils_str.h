@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sample.c                                           :+:      :+:    :+:   */
+/*   utils_str.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:58:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:22 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/10/29 18:10:01 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/01 13:13:00 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <limits.h>
+#ifndef UTILS_STR_H
+# define UTILS_STR_H
 
-int	main(void)
-{
-	printf("%d\n",
-		printf("%04d\n", 3));
-	return(0);
-}
+char	*trimchr(char *str, char trim);
+int		stricmp(const char *string1, const char *string2);
+
+#ifdef WINDOWS
+
+char *strndup(char *str, size_t len);
+
+#endif
+
+#ifdef MAC
+
+char	*lltoa(long long value, char *buffer, int base);
+char	*ulltoa(unsigned long long value, char *buffer, int base);
+
+#endif
+
+#endif

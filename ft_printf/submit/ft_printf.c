@@ -6,13 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:08:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:10 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/09 15:15:50 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "libft.h"
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	ft_printf(const char *format, ...)
 {
