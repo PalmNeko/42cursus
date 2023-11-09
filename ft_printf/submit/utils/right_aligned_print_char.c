@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   right_aligned_print_char.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 16:08:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:10 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/09 13:51:24 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/09 13:53:43 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include <stddef.h>
+#include <limits.h>
 #include "libft.h"
-#include "ft_printf.h"
+#include "string_util.h"
 
-int	ft_printf(const char *format, ...)
+int	right_aligned_print_char(int fd, char c, size_t min_len, int pad_zero)
 {
-	va_list	ap;
-	int		print_len;
+	size_t	len;
+	char	*pad_str;
 
-	va_start(ap, format);
-	print_len = vprintf_fd(1, format, ap);
-	va_end(ap);
-	return (print_len);
+	len = 1;
+	if (pad_zero != 0)
+		pad_str = "0";
+	else
+		pad_str = " ";
+	if (len <= min_len)
+		len += repeat_print_fd(fd, pad_str, (int)(min_len - len));
+	if (len > INT_MAX)
+		return (-1);
+	ft_putchar_fd(c, fd);
+	return (len);
 }

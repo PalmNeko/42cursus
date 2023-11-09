@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:49:40 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 13:40:35 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/08 23:53:18 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef enum e_conversion_specifier
 	CS_LOWER_X,
 	CS_UPPER_X,
 	CS_PERCENT
-} t_conversion_specifier;
+}	t_conversion_specifier;
 
 /** conversion specifier
  * @param conversion_specifier conversion specifier
@@ -42,17 +42,17 @@ typedef enum e_conversion_specifier
  */
 typedef struct s_conv_specification
 {
-	t_conversion_specifier conversion_specifier;
-	int flag_sharp;
-	int	flag_minus;
-	int	flag_plus;
-	int	flag_zero;
-	int	flag_space;
-	int is_specified_min_field_width;
-	int minimum_field_width;
-	int is_specified_precision;
-	int precision;
-} t_conv_specification;
+	t_conversion_specifier	conversion_specifier;
+	int						flag_sharp;
+	int						flag_minus;
+	int						flag_plus;
+	int						flag_zero;
+	int						flag_space;
+	int						is_specified_min_field_width;
+	int						minimum_field_width;
+	int						is_specified_precision;
+	int						precision;
+}	t_conv_specification;
 
 t_conv_specification	*new_t_conv_specification(void);
 t_conv_specification	*get_conv_specification(const char *format);

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:51:32 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 13:59:14 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/08 23:53:55 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # include <stdarg.h>
 # include "conversion_specification.h"
 
-typedef int(*print_function)(int, t_conv_specification *, va_list);
+typedef int	(*t_print_function)(int, t_conv_specification *, va_list);
 typedef struct s_relational_conversion_specifier_and_print_function {
-	t_conversion_specifier	specifier;
-	print_function			p_function;
+	t_conversion_specifier		specifier;
+	t_print_function			p_function;
 }	t_relational_conversion_specifier_and_print_function;
 
 int	print_char_fd(int fd, t_conv_specification *cs, va_list args);

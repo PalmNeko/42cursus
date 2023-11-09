@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:52:40 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 16:43:01 by tookuyam         ###   ########.fr       */
+/*   Updated: 2023/11/08 23:55:50 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static int	print_cs(int fd, const char **format, va_list arg_ptr)
 	if (cs == NULL)
 		return (-1);
 	print_len = print_va_list_fd(fd, cs, arg_ptr);
+	free_t_conv_specification(cs);
 	specification_len = get_conv_specification_len(*format);
 	if (specification_len < 0)
 		return (-1);

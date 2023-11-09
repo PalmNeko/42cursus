@@ -19,7 +19,7 @@
 static void	set_flag(t_conv_specification *cs, const char *format);
 static void	set_min_field_width(t_conv_specification *cs, const char *format);
 static void	set_precision(t_conv_specification *cs, const char *format);
-static void	set_conversion_specifier(t_conv_specification *cs, const char *format);
+static void	set_conversion_specifier(t_conv_specification *cs, const char *fmt);
 
 /**
  * get conversion specification.
@@ -97,25 +97,25 @@ static void	set_precision(t_conv_specification *cs, const char *format)
 	return ;
 }
 
-static void	set_conversion_specifier(t_conv_specification *cs, const char *format)
+static void	set_conversion_specifier(t_conv_specification *cs, const char *fmt)
 {
-	if (*format == 'c')
+	if (*fmt == 'c')
 		cs->conversion_specifier = CS_LOWER_C;
-	else if (*format == 'd')
+	else if (*fmt == 'd')
 		cs->conversion_specifier = CS_LOWER_D;
-	else if (*format == 'i')
+	else if (*fmt == 'i')
 		cs->conversion_specifier = CS_LOWER_I;
-	else if (*format == 'p')
+	else if (*fmt == 'p')
 		cs->conversion_specifier = CS_LOWER_P;
-	else if (*format == 's')
+	else if (*fmt == 's')
 		cs->conversion_specifier = CS_LOWER_S;
-	else if (*format == 'u')
+	else if (*fmt == 'u')
 		cs->conversion_specifier = CS_LOWER_U;
-	else if (*format == 'x')
+	else if (*fmt == 'x')
 		cs->conversion_specifier = CS_LOWER_X;
-	else if (*format == 'X')
+	else if (*fmt == 'X')
 		cs->conversion_specifier = CS_UPPER_X;
-	else if (*format == '%')
+	else if (*fmt == '%')
 		cs->conversion_specifier = CS_PERCENT;
 	return ;
 }
