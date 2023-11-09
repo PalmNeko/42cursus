@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_ultoa_base_str.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 16:58:09 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 15:22:06 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/09 14:33:21 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/09 14:33:37 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
+#include <stdlib.h>
+#include <stddef.h>
 
-ssize_t	ft_putchar_fd(char c, int fd)
+char	*ft_ultoa_base_str(unsigned long n, const char *base_str)
 {
-	return (write(fd, &c, 1));
+	char		num_str[70];
+	int			base;
+	size_t		index;
+
+	base = ft_strlen(base_str);
+	index = 0;
+	if (n == 0)
+		num_str[index++] = '0';
+	while (n != 0)
+	{
+		num_str[index++] = base_str[ft_abs(n % base)];
+		n /= base;
+	}
+	num_str[index] = '\0';
+	ft_strrev(num_str);
+	return (ft_strdup(num_str));
 }

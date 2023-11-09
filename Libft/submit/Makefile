@@ -6,7 +6,7 @@
 #    By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 17:19:34 by tookuyam          #+#    #+#              #
-#    Updated: 2023/11/07 19:13:40 by tookuyam         ###   ########.fr        #
+#    Updated: 2023/11/09 14:34:28 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ MY_SRC = \
 	ft_add_l.c \
 	ft_isupper.c \
 	ft_islower.c \
-	ft_strtol.c
+	ft_strtol.c \
+	ft_ultoa_base_str.c
 
 BONUS = \
 	ft_lstnew_bonus.c \
