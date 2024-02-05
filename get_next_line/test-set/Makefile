@@ -6,7 +6,7 @@ INCLUDES = $(dir $(shell find $(SRCDIR) -name "*.h"))
 SRCS = $(shell find $(SRCDIR) -name "*.c" ! -name "*_bonus.c" -type f | xargs)
 OBJS = $(SRCS:.c=.o)
 DEPENDS = $(OBJS:.o=.d)
-SRCS_BONUS = $(shell find $(SRCDIR) -name "*_bonus.c" -type f | xargs)
+SRCS_BONUS = $(shell find $(SRCDIR) -name "*_bonus.c" -o -name "*_union.c" -type f | xargs)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 DEPENDS_BONUS = $(OBJS_BONUS:.o=.d)
 CC = cc
