@@ -48,15 +48,15 @@ char	*ft_strchr(const char *s, char find)
 	return (NULL);
 }
 
-char	*read_str(int fd, size_t bufsize)
+char	*read_str(int fd)
 {
 	char	*buf;
 	ssize_t	read_result;
 
-	buf = (char *)malloc(sizeof(char) * (bufsize + 1));
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
-	read_result = read(fd, buf, bufsize);
+	read_result = read(fd, buf, BUFFER_SIZE);
 	if (read_result < 0)
 		return (free_manager(&buf));
 	buf[read_result] = '\0';

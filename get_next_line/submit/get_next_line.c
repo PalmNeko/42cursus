@@ -42,7 +42,7 @@ char	*_get_next_line(char **str, int fd, char **leftovers)
 	is_eof = 0;
 	while (ft_strchr(*str, '\n') == NULL && is_eof == 0)
 	{
-		joined = ft_strjoin_fd(*str, fd, &is_eof, BUFFER_SIZE);
+		joined = ft_strjoin_fd(*str, fd, &is_eof);
 		if (joined == NULL || ft_strlenchr(joined, '\0') == 0)
 			return (free_manager(&joined));
 		free_manager(str);
@@ -62,7 +62,7 @@ char	*_get_next_line(char **str, int fd, char **leftovers)
 	return (line);
 }
 
-char	*ft_strjoin_fd(char *left, int fd, int *is_eof, size_t buf_size)
+char	*ft_strjoin_fd(char *left, int fd, int *is_eof)
 {
 	size_t	count;
 	size_t	index;
@@ -70,7 +70,7 @@ char	*ft_strjoin_fd(char *left, int fd, int *is_eof, size_t buf_size)
 	char	*right_iter;
 	char	*joined;
 
-	right = read_str(fd, buf_size);
+	right = read_str(fd);
 	if (right == NULL)
 		return (free_manager(&right));
 	count = ft_strlenchr(left, '\0') + ft_strlenchr(right, '\0') + 1;

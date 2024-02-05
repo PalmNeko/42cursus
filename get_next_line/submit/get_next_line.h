@@ -21,12 +21,12 @@
 
 char		*get_next_line(int fd);
 char		*_get_next_line(char **str, int fd, char **leftovers);
-char		*ft_strjoin_fd(char *left, int fd, int *is_eof, size_t buf_size);
+char		*ft_strjoin_fd(char *left, int fd, int *is_eof);
 char		*ft_substrchr(char const *str, char sep);
 
 size_t		ft_strlenchr(char const *s, char find);
 void		*free_manager(char **str);
 char		*ft_strchr(const char *s, char find);
-char		*read_str(int fd, size_t bufsize);
+char		*read_str(int fd);
 
 #endif

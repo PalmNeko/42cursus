@@ -35,13 +35,13 @@ typedef enum e_list_operator {
 char	*get_next_line(int fd);
 t_pl	*get_target_pl(t_pl **pool, int fd);
 char	*_get_next_line(char **str, int fd, char **leftovers);
-char	*ft_strjoin_fd(char *left, int fd, int *is_eof, size_t buf_size);
+char	*ft_strjoin_fd(char *left, int fd, int *is_eof);
 char	*ft_substrchr(char const *str, char sep);
 
 size_t	ft_strlenchr(char const *s, char find);
 void	*free_manager(char **str1, t_pl **delone);
 char	*ft_strchr(const char *s, char find);
-char	*read_str(int fd, size_t bufsize);
+char	*read_str(int fd);
 void	*pool_list_utils(t_pl **target1, t_pl **target2, int fd, t_lo ope);
 
 #endif
