@@ -38,10 +38,10 @@ bool vcheck_ft_printf(const char *format, va_list ap) {
     if (stat("logs", &st) != 0)
 		if (mkdir("logs", 0777) == -1)
 			return perror(NULL), false;
-	ft_printf_fd = open(ft_printf_log_filename, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
+	ft_printf_fd = open(ft_printf_log_filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (ft_printf_fd == -1)
 		return perror(NULL), false;
-	printf_fd = open(printf_log_filename, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
+	printf_fd = open(printf_log_filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (printf_fd == -1)
 		return perror(NULL), false;
 	ft_print_len = vprintf_fd(ft_printf_fd, format, ft_ap);
