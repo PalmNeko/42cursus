@@ -3,6 +3,7 @@
 # define FT_PRINTF_TEST_TOOL_H
 
 # include <stdbool.h>
+# include <stdarg.h>
 
 // main
 bool check_ft_printf(const char *format, ...);
