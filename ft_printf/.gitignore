@@ -4,3 +4,4 @@
 *.out
 /test
 submit/Libft
+logs/
