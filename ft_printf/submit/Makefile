@@ -55,9 +55,20 @@ SRCS += ./check_printf_format.c \
 
 OBJS = $(SRCS:.c=.o)
 DEPENDS = $(SRCS:.c=.d)
+
+NAME_BONUS = bonus
+SRC_BONUS = $(SRCS:.c=_bonus.c)
+OBJS_BONUS = $(SRC_BONUS:.c=.o)
+DEPENDS_BONUS = $(SRC_BONUS:.c=.d)
+
+
 CFLAGS += -MMD -MP
-EXCLUDE_INC_DIRS = "./.git" "./.git/*"
-INC_DIRS = $(shell find . -type d $(addprefix -not -path , $(EXCLUDE_INC_DIRS)))
+INC_DIRS = \
+	conversion_specification \
+	printers \
+	utils \
+	Libft
+
 CFLAGS += $(addprefix -I, $(INC_DIRS))
 
 ifeq ($(MAKECMDGOALS), debug)
@@ -68,11 +79,17 @@ endif
 all: $(NAME)
 
 -include $(DEPENDS)
+-include $(DEPENDS_BONUS)
 
 # make files
 $(NAME): $(LIBFT) $(OBJS)
 	cp $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(filter %.o, $?)
+
+$(NAME_BONUS): $(LIBFT) $(OBJS_BONUS)
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(filter %.o, $?)
+	date > bonus
 
 $(LIBFT):
 	$(MAKE) --directory Libft
@@ -86,10 +103,12 @@ build: $(NAME) clean
 clean:
 	$(MAKE) --directory Libft clean
 	$(RM) $(OBJS) $(DEPENDS)
+	$(RM) $(OBJS_BONUS) $(DEPENDS_BONUS)
 
 fclean: clean
 	$(MAKE) --directory Libft fclean
 	$(RM) $(NAME)
+	$(RM) $(NAME_BONUS)
 
 re: fclean all
 
