@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_conv_specification.c                     :+:      :+:    :+:   */
+/*   get_conv_specification_bonus.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conversion_specification.h"
-#include "conversion_specification_utils.h"
+#include "conversion_specification_bonus.h"
+#include "conversion_specification_utils_bonus.h"
 #include "libft.h"
 #include <stdlib.h>
 #include <errno.h>

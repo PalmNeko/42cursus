@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_percent_fd_bonus.c                           :+:      :+:    :+:   */
+/*   conversion_specification_utils_bonus.h             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 23:18:58 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 14:53:29 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/06 13:14:11 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/08 23:48:41 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdarg.h>
-#include "conversion_specification_bonus.h"
-#include "aligned_print_bonus.h"
-#include "libft.h"
+#ifndef CONVERSION_SPECIFICATION_UTILS_BONUS_H
+# define CONVERSION_SPECIFICATION_UTILS_BONUS_H
 
-int	print_percent_fd(int fd, t_conv_specification *cs, va_list args)
-{
-	int				print_len;
+int	is_flags(char c);
+int	is_conversion_specifier(char c);
 
-	args = 0;
-	print_len = t_conv_aligned_print_char(fd, cs, '%');
-	return (print_len);
-}
+#endif

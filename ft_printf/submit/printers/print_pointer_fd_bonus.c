@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_pointer_fd.c                                 :+:      :+:    :+:   */
+/*   print_pointer_fd_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,9 +13,9 @@
 #include <stdarg.h>
 #include <stdarg.h>
 #include <stdlib.h>
-#include "conversion_specification.h"
-#include "aligned_print.h"
-#include "string_util.h"
+#include "conversion_specification_bonus.h"
+#include "aligned_print_bonus.h"
+#include "string_util_bonus.h"
 #include "libft.h"
 
 static char	*set_prefix_with_cs(t_conv_specification *cs, const char *str);

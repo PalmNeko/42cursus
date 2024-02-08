@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_string_fd.c                                  :+:      :+:    :+:   */
+/*   print_string_fd_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,8 +14,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "libft.h"
-#include "conversion_specification.h"
-#include "aligned_print.h"
+#include "conversion_specification_bonus.h"
+#include "aligned_print_bonus.h"
 
 static char	*replace_null(const char *str);
 static char	*substr_with_cs(t_conv_specification *cs, const char *str);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_conv_aligned_print_char.c                        :+:      :+:    :+:   */
+/*   t_conv_aligned_print_char_bonus.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conversion_specification.h"
-#include "conversion_specification_utils.h"
-#include "aligned_print.h"
+#include "conversion_specification_bonus.h"
+#include "conversion_specification_utils_bonus.h"
+#include "aligned_print_bonus.h"
 
 int	t_conv_aligned_print_char(int fd, t_conv_specification *cs, char c)
 {

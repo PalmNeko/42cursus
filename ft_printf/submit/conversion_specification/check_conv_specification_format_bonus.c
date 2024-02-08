@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_conv_specification_format.c                  :+:      :+:    :+:   */
+/*   check_conv_specification_format_bonus.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include <errno.h>
 #include "libft.h"
-#include "conversion_specification_utils.h"
+#include "conversion_specification_utils_bonus.h"
 
 int	check_conv_specification_format(const char *cs_format)
 {

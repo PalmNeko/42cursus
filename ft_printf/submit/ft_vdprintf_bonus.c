@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vdprintf.c                                    :+:      :+:    :+:   */
+/*   ft_vdprintf_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,9 +13,9 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <limits.h>
-#include "conversion_specification.h"
-#include "printers.h"
-#include "ft_printf.h"
+#include "conversion_specification_bonus.h"
+#include "printers_bonus.h"
+#include "ft_printf_bonus.h"
 
 static int	print_cs(int fd, const char **format, va_list arg_ptr);
 

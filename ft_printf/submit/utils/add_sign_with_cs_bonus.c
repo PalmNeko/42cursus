@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_sign_with_cs.c                                 :+:      :+:    :+:   */
+/*   add_sign_with_cs_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conversion_specification.h"
+#include "conversion_specification_bonus.h"
 #include "libft.h"
 
 char	*add_sign_with_cs(t_conv_specification *cs, char *num_str)

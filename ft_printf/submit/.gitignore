@@ -5,3 +5,4 @@ includes
 *.a
 *.d
 bonus
+*.bak

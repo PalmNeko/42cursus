@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_t_conv_specification.c                   :+:      :+:    :+:   */
+/*   new_t_conv_specification_bonus.c             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conversion_specification.h"
+#include "conversion_specification_bonus.h"
 #include <stdlib.h>
 
 t_conv_specification	*new_t_conv_specification(void)

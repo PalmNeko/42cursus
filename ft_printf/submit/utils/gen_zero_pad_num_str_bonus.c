@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gen_zero_pad_num_str.c                             :+:      :+:    :+:   */
+/*   gen_zero_pad_num_str_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include <stddef.h>
 #include <limits.h>
 #include <stdlib.h>
-#include "string_util.h"
+#include "string_util_bonus.h"
 #include "libft.h"
 
 char	*gen_zero_pad_num_str(char *num_str, int min_num_len)

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex_upper_fd.c                               :+:      :+:    :+:   */
+/*   print_hex_upper_fd_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,9 +13,9 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include "conversion_specification.h"
-#include "aligned_print.h"
-#include "string_util.h"
+#include "conversion_specification_bonus.h"
+#include "aligned_print_bonus.h"
+#include "string_util_bonus.h"
 #include "libft.h"
 
 int	print_hex_upper_fd(int fd, t_conv_specification *cs, va_list args)

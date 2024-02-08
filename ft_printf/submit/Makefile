@@ -53,6 +53,15 @@ SRCS += ./check_printf_format.c \
 ./utils/t_conv_aligned_print_char.c \
 ./utils/zero_pad_with_cs.c
 
+INCLUDES = \
+	./conversion_specification/conversion_specification.h \
+	./ft_printf.h \
+	./Libft/libft.h \
+	./printers/printers.h \
+	./utils/aligned_print.h \
+	./utils/conversion_specification_utils.h \
+	./utils/string_util.h
+
 OBJS = $(SRCS:.c=.o)
 DEPENDS = $(SRCS:.c=.d)
 
@@ -99,6 +108,31 @@ $(LIBFT):
 debug: $(NAME)
 
 build: $(NAME) clean
+
+update_bonus:
+	@for i in $(SRCS); \
+	do \
+		bonus_file_name=$$(echo $$i | sed -E 's/\.c$$/_bonus\.c/g'); \
+		cp $$i $$bonus_file_name; \
+		sed -i".bak" -E 's/\.h"$$/_bonus\.h"/g' $$bonus_file_name; \
+		bonus_file_base_name="$$(basename $$bonus_file_name | sed 's/\./\\./g')"; \
+		file_base_name="$$(basename $$i | sed 's/\./\\./g')      "; \
+		sed -i".bak" "s/$$file_base_name/$$bonus_file_base_name/g" $$bonus_file_name; \
+		sed -i".bak" 's/libft_bonus.h/libft.h/g' $$bonus_file_name; \
+	done
+	@for i in $(INCLUDES); \
+	do \
+		if [[ ! $$i =~ "libft" ]]; then \
+			bonus_file_name=$$(echo $$i | sed -E 's/\.h$$/_bonus\.h/g'); \
+			cp $$i $$bonus_file_name; \
+			bonus_file_base_name="$$(basename $$bonus_file_name | sed 's/\./\\./g')"; \
+			file_base_name="$$(basename $$i | sed 's/\./\\./g')      "; \
+			sed -i".bak" "s/$$file_base_name/$$bonus_file_base_name/g" $$bonus_file_name; \
+			file_base_name_header=$$(echo $$file_base_name | tr "[a-z]" "[A-Z]" | tr '.' '_'); \
+			bonus_file_base_name_header=$$(echo $$bonus_file_base_name | tr "[a-z]" "[A-Z]" | tr '.' '_'); \
+			sed -i".bak" "s/$$file_base_name_header/$$bonus_file_base_name_header/g" $$bonus_file_name; \
+		fi; \
+	done
 
 clean:
 	$(MAKE) --directory Libft clean

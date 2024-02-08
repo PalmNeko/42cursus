@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_conv_specification_len.c                 :+:      :+:    :+:   */
+/*   get_conv_specification_len_bonus.c           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "conversion_specification.h"
+#include "conversion_specification_bonus.h"
 #include "libft.h"
-#include "conversion_specification_utils.h"
+#include "conversion_specification_utils_bonus.h"
 
 /**
  * get length of one conversion specification.

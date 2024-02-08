@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_va_list_fd.c                                 :+:      :+:    :+:   */
+/*   print_va_list_fd_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conversion_specification.h"
-#include "printers.h"
+#include "conversion_specification_bonus.h"
+#include "printers_bonus.h"
 
 int	print_va_list_fd(int fd, t_conv_specification *cs, va_list args)
 {

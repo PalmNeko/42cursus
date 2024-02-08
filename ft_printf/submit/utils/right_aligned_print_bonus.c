@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   right_aligned_print.c                              :+:      :+:    :+:   */
+/*   right_aligned_print_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include <stddef.h>
 #include <limits.h>
 #include "libft.h"
-#include "string_util.h"
+#include "string_util_bonus.h"
 
 int	right_aligned_print(int fd, const char *str, size_t min_len, int pad_zero)
 {
