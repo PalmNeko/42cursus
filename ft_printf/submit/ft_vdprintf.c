@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vprintf_fd.c                                    :+:      :+:    :+:   */
+/*   ft_vdprintf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -19,7 +19,7 @@
 
 static int	print_cs(int fd, const char **format, va_list arg_ptr);
 
-int	vprintf_fd(int fd, const char *format, va_list arg_ptr)
+int	ft_vdprintf(int fd, const char *format, va_list arg_ptr)
 {
 	size_t	len;
 	int		tmp_len;

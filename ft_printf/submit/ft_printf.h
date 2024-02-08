@@ -17,6 +17,6 @@
 
 int	ft_printf(const char *format, ...);
 int	check_printf_format(const char *format);
-int	vprintf_fd(int fd, const char *format, va_list arg_ptr);
+int	ft_vdprintf(int fd, const char *format, va_list arg_ptr);
 
 #endif

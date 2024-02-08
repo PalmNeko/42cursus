@@ -21,7 +21,7 @@ int	ft_printf(const char *format, ...)
 	int		print_len;
 
 	va_start(ap, format);
-	print_len = vprintf_fd(1, format, ap);
+	print_len = ft_vdprintf(1, format, ap);
 	va_end(ap);
 	return (print_len);
 }
