@@ -14,20 +14,23 @@ NAME = test
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -MMD -MP
 SRC_PATH = "./docs/*" "./sample_printf/*"
-SRCS += $(shell find . -name "*.c" $(addprefix -not -path , $(SRC_PATH)))
+SRCS += $(shell find tests -name "*.c")
 OBJS = $(SRCS:.c=.o)
 DEPENDS = $(SRCS:.c=.d)
-EXCLUDE_INC_DIRS = "./sample_printf" "./docs" "./submit/.git" "./submit/.git/*"
-INC_DIRS = $(shell find . -type d $(addprefix -not -path , $(EXCLUDE_INC_DIRS)))
+INC_DIRS = $(dir $(shell find . -type f -name "*.h"))
 CFLAGS += $(addprefix -I, $(INC_DIRS))
 LIBS_TYCTEST = ./libs/libtyctest_main.a ./libs/libtyctest.a
+LIB_FT_PRINTF = submit/libftprintf.a
 
 all: $(NAME)
 
 -include $(DEPENDS)
 
-$(NAME): $(OBJS) $(LIBS_TYCTEST)
+$(NAME): $(OBJS) $(LIBS_TYCTEST) $(LIB_FT_PRINTF)
 	$(CC) $(CFLAGS) -o $(NAME) $^
+
+$(LIB_FT_PRINTF):
+	$(MAKE) --directory submit
 
 check: $(NAME)
 	./$(NAME)

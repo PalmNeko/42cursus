@@ -35,6 +35,7 @@ TEST(ft_printf, d)
 		ASSERT_TRUE(check_ft_printf("%+d\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("% d\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%0d\n", check_values[i]));
+		ASSERT_TRUE(check_ft_printf("%.0d\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%.1d\n", check_values[i]));
 	}
 }
@@ -57,6 +58,7 @@ TEST(ft_printf, i)
 		ASSERT_TRUE(check_ft_printf("%+i\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("% i\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%0i\n", check_values[i]));
+		ASSERT_TRUE(check_ft_printf("%.0i\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%.1i\n", check_values[i]));
 	}
 }
@@ -120,6 +122,7 @@ TEST(ft_printf, p)
 		ASSERT_TRUE(check_ft_printf("%+p\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("% p\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%0p\n", check_values[i]));
+		ASSERT_TRUE(check_ft_printf("%.0p\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%.1p\n", check_values[i]));
 	}
 }
@@ -142,6 +145,7 @@ TEST(ft_printf, u)
 		ASSERT_TRUE(check_ft_printf("%+u\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("% u\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%0u\n", check_values[i]));
+		ASSERT_TRUE(check_ft_printf("%.0u\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%.1u\n", check_values[i]));
 	}
 }
@@ -163,6 +167,7 @@ TEST(ft_printf, x)
 		ASSERT_TRUE(check_ft_printf("%+x\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("% x\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%0x\n", check_values[i]));
+		ASSERT_TRUE(check_ft_printf("%.0x\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%.1x\n", check_values[i]));
 	}
 }
@@ -184,6 +189,7 @@ TEST(ft_printf, X)
 		ASSERT_TRUE(check_ft_printf("%+X\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("% X\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%0X\n", check_values[i]));
+		ASSERT_TRUE(check_ft_printf("%.0X\n", check_values[i]));
 		ASSERT_TRUE(check_ft_printf("%.1X\n", check_values[i]));
 	}
 }

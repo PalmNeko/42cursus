@@ -44,7 +44,7 @@ bool vcheck_ft_printf(const char *format, va_list ap) {
 	printf_fd = open(printf_log_filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (printf_fd == -1)
 		return perror(NULL), false;
-	ft_print_len = vprintf_fd(ft_printf_fd, format, ft_ap);
+	ft_print_len = ft_vdprintf(ft_printf_fd, format, ft_ap);
 	print_len = vdprintf(printf_fd, format, ap);
 	if (ft_print_len != print_len) {
 		fprintf(stdout, YELLOW "error" CL ": return value isn't equal - original : %d ft: %d\n", print_len, ft_print_len);
