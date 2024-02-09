@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex_upper_fd.c                               :+:      :+:    :+:   */
+/*   ft_vdprint_hex_upper_cs.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 22:53:22 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:41:59 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/09 19:19:28 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "conversion_specification.h"
 #include "aligned_print.h"
 #include "string_util.h"
 #include "libft.h"
+#include "_ft_vdprint_cs.h"
 
 int print_hex_upper_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value);
 
@@ -30,27 +32,16 @@ int	ft_vdprint_hex_upper_cs(int fd, t_conv_specification *cs, va_list args)
 
 int print_hex_upper_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value)
 {
-	char	*num_str;
 	char	*pad_zero_str;
-	char	*tmp;
 	int		print_len;
 
-	num_str = ft_utoa_base_str(value, "0123456789ABCDEF");
-	if (num_str == NULL)
-		return (-1);
-	if (cs->flag_sharp != 0)
-	{
-		tmp = ft_strjoin("0X", num_str);
-		free(num_str);
-		if (tmp == NULL)
-			return (-1);
-		num_str = tmp;
-	}
-	pad_zero_str = zero_pad_with_cs(cs, num_str);
-	free(num_str);
+	if (value == 0)
+		cs->flag_sharp = false;
+	pad_zero_str = generate_ul_hex_with_cs(cs, value);
 	if (pad_zero_str == NULL)
 		return (-1);
 	cs->flag_zero = 0;
+	ft_toupper_str(pad_zero_str);
 	print_len = t_conv_aligned_print(fd, cs, pad_zero_str);
 	free(pad_zero_str);
 	return (print_len);

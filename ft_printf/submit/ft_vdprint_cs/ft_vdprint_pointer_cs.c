@@ -17,8 +17,8 @@
 #include "aligned_print.h"
 #include "string_util.h"
 #include "libft.h"
+#include "_ft_vdprint_cs.h"
 
-static char	*set_prefix_with_cs(t_conv_specification *cs, const char *str);
 int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value);
 
 int	ft_vdprint_pointer_cs(int fd, t_conv_specification *cs, va_list args)
@@ -31,33 +31,15 @@ int	ft_vdprint_pointer_cs(int fd, t_conv_specification *cs, va_list args)
 
 int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value)
 {
-	char	*num_str;
 	char	*pad_zero_str;
-	char	*tmp;
 	int		print_len;
 
 	cs->flag_sharp = !0;
-	num_str = ft_ultoa_base_str(value, "0123456789abcdef");
-	if (num_str == NULL)
-		return (-1);
-	tmp = set_prefix_with_cs(cs, num_str);
-	free(num_str);
-	if (tmp == NULL)
-		return (-1);
-	num_str = tmp;
-	pad_zero_str = zero_pad_with_cs(cs, num_str);
-	free(num_str);
+	pad_zero_str = generate_ul_hex_with_cs(cs, value);
 	if (pad_zero_str == NULL)
 		return (-1);
 	cs->flag_zero = 0;
 	print_len = t_conv_aligned_print(fd, cs, pad_zero_str);
 	free(pad_zero_str);
 	return (print_len);
-}
-
-static char	*set_prefix_with_cs(t_conv_specification *cs, const char *str)
-{
-	if (cs->flag_sharp != 0)
-		return (ft_strjoin("0x", str));
-	return (ft_strdup(str));
 }

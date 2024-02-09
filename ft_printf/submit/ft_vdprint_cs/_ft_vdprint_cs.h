@@ -23,4 +23,6 @@ int	ft_vdprint_uint_cs(int fd, t_conv_specification *cs, va_list args);
 
 int print_char_fd_with_cs(int fd, t_conv_specification *cs, char c);
 
+char *generate_ul_hex_with_cs(t_conv_specification *cs, unsigned long value);
+
 #endif

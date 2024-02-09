@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 16:10:34 by tookuyam          #+#    #+#              #
-#    Updated: 2023/11/05 19:31:57 by tookuyam         ###   ########.fr        #
+#    Updated: 2024/02/09 19:25:04 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,9 @@ SRCS += ./check_printf_format.c \
 ./ft_vdprint_cs/ft_vdprint_pointer_cs.c \
 ./ft_vdprint_cs/ft_vdprint_string_cs.c \
 ./ft_vdprint_cs/ft_vdprint_uint_cs.c \
+./ft_vdprint_cs/generate_ul_hex_with_cs.c \
 ./utils/add_sign_with_cs.c \
+./utils/ft_toupper_str.c \
 ./utils/gen_repeat_str.c \
 ./utils/gen_zero_pad_num_str.c \
 ./utils/pad_zero_str.c \
