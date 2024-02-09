@@ -37,9 +37,11 @@ check: $(NAME)
 
 clean:
 	$(RM) $(OBJS) $(DEPENDS)
+	$(MAKE) --directory submit clean
 
 fclean: clean
 	$(RM) $(NAME)
+	$(MAKE) --directory submit fclean
 
 re: fclean all
 

@@ -13,7 +13,7 @@
 #ifndef STRING_UTIL_BONUS_H
 # define STRING_UTIL_BONUS_H
 
-# include "conversion_specification.h"
+# include "conversion_specification_bonus.h"
 
 int		repeat_print_fd(int fd, const char *str, int repeat_cnt);
 char	*gen_repeat_str(const char *str, int repeat_cnt);
