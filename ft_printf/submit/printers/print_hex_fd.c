@@ -17,14 +17,24 @@
 #include "string_util.h"
 #include "libft.h"
 
+int print_hex_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value);
+
 int	print_hex_fd(int fd, t_conv_specification *cs, va_list args)
+{
+	unsigned int print_value;
+
+	print_value = va_arg(args, unsigned int);
+	return print_hex_fd_with_cs(fd, cs, print_value);
+}
+
+int print_hex_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value)
 {
 	char	*num_str;
 	char	*pad_zero_str;
 	char	*tmp;
 	int		print_len;
 
-	num_str = ft_utoa_base_str(va_arg(args, unsigned int), "0123456789abcdef");
+	num_str = ft_utoa_base_str(value, "0123456789abcdef");
 	if (num_str == NULL)
 		return (-1);
 	if (cs->flag_sharp != 0)

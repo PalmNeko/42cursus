@@ -19,14 +19,20 @@
 
 static char	*replace_null(const char *str);
 static char	*substr_with_cs(t_conv_specification *cs, const char *str);
+int	print_string_fd_with_cs(int fd, t_conv_specification *cs, char *output_str);
 
-int	print_string_fd(int fd, t_conv_specification *cs, va_list args)
-{
-	int		print_len;
-	char	*output_str;
-	char	*tmp;
+int	print_string_fd(int fd, t_conv_specification *cs, va_list args) {
+	char *output_str;
 
 	output_str = va_arg(args, char *);
+	return (print_string_fd_with_cs(fd, cs, output_str));
+}
+
+int	print_string_fd_with_cs(int fd, t_conv_specification *cs, char *output_str)
+{
+	int		print_len;
+	char	*tmp;
+
 	tmp = replace_null(output_str);
 	if (tmp == NULL)
 		return (-1);

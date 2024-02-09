@@ -19,8 +19,17 @@
 #include "libft.h"
 
 static char	*set_prefix_with_cs(t_conv_specification *cs, const char *str);
+int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value);
 
 int	print_pointer_fd(int fd, t_conv_specification *cs, va_list args)
+{
+	unsigned long value;
+
+	value = va_arg(args, unsigned long);
+	return (print_pointer_fd_with_cs(fd, cs, value));
+}
+
+int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value)
 {
 	char	*num_str;
 	char	*pad_zero_str;
@@ -28,8 +37,7 @@ int	print_pointer_fd(int fd, t_conv_specification *cs, va_list args)
 	int		print_len;
 
 	cs->flag_sharp = !0;
-	num_str = ft_ultoa_base_str(
-			va_arg(args, unsigned long), "0123456789abcdef");
+	num_str = ft_ultoa_base_str(value, "0123456789abcdef");
 	if (num_str == NULL)
 		return (-1);
 	tmp = set_prefix_with_cs(cs, num_str);

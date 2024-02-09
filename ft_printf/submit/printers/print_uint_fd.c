@@ -18,17 +18,25 @@
 #include "string_util.h"
 #include "aligned_print.h"
 
-int	print_uint_fd(int fd, t_conv_specification *cs, va_list args)
+int	print_uint_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value);
+
+int print_uint_fd(int fd, t_conv_specification *cs, va_list args)
+{
+	int	value;
+
+	value = va_arg(args, unsigned int);
+	return (print_uint_fd_with_cs(fd, cs, value));
+}
+
+int	print_uint_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value)
 {
 	char			*num_str;
 	char			*pad_zero_str;
 	int				print_len;
-	unsigned int	print_value;
 
-	print_value = va_arg(args, unsigned int);
-	if (is_set_zero_precision(cs) && print_value == 0)
+	if (is_set_zero_precision(cs) && value == 0)
 		return (0);
-	num_str = ft_utoa(print_value);
+	num_str = ft_utoa(value);
 	if (num_str == NULL)
 		return (-1);
 	pad_zero_str = zero_pad_with_cs(cs, num_str);
