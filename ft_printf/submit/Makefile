@@ -20,6 +20,12 @@ LIBFT = Libft/libft.a
 CC = cc
 CFLAGS += -Wall -Werror -Wextra
 SRCS += ./check_printf_format.c \
+./aligned_print/left_aligned_print.c \
+./aligned_print/left_aligned_print_char.c \
+./aligned_print/right_aligned_print.c \
+./aligned_print/right_aligned_print_char.c \
+./aligned_print/t_conv_aligned_print.c \
+./aligned_print/t_conv_aligned_print_char.c \
 ./conversion_specification/check_conv_specification_format.c \
 ./conversion_specification/free_t_conv_specification.c \
 ./conversion_specification/get_conv_specification.c \
@@ -44,14 +50,8 @@ SRCS += ./check_printf_format.c \
 ./utils/add_sign_with_cs.c \
 ./utils/gen_repeat_str.c \
 ./utils/gen_zero_pad_num_str.c \
-./utils/left_aligned_print.c \
-./utils/left_aligned_print_char.c \
 ./utils/pad_zero_str.c \
 ./utils/repeat_print_fd.c \
-./utils/right_aligned_print.c \
-./utils/right_aligned_print_char.c \
-./utils/t_conv_aligned_print.c \
-./utils/t_conv_aligned_print_char.c \
 ./utils/zero_pad_with_cs.c
 
 INCLUDES = \
@@ -60,7 +60,7 @@ INCLUDES = \
 	./ft_printf.h \
 	./Libft/libft.h \
 	./printers/printers.h \
-	./utils/aligned_print.h \
+	./aligned_print/aligned_print.h \
 	./utils/string_util.h \
 
 OBJS = $(SRCS:.c=.o)
@@ -77,6 +77,7 @@ INC_DIRS = \
 	conversion_specification \
 	printers \
 	utils \
+	aligned_print \
 	Libft \
 	bonus_files
 
