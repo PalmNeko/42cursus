@@ -34,6 +34,8 @@ $(LIB_FT_PRINTF):
 
 check: $(NAME)
 	./$(NAME)
+	cd submit
+	francinette -mb
 
 clean:
 	$(RM) $(OBJS) $(DEPENDS)

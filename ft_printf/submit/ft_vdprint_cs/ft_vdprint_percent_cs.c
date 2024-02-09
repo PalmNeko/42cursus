@@ -13,14 +13,14 @@
 #include <stddef.h>
 #include <stdarg.h>
 #include "conversion_specification.h"
-#include "aligned_print.h"
 #include "libft.h"
+#include "_ft_vdprint_cs.h"
 
 int	ft_vdprint_percent_cs(int fd, t_conv_specification *cs, va_list args)
 {
 	int				print_len;
 
 	args = 0;
-	print_len = t_conv_aligned_print_char(fd, cs, '%');
+	print_len = print_char_fd_with_cs(fd, cs, '%');
 	return (print_len);
 }
