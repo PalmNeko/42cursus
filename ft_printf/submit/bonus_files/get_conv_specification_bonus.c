@@ -16,10 +16,10 @@
 #include <stdlib.h>
 #include <errno.h>
 
-static void	set_flag(t_conv_specification *cs, const char *format);
+static void	read_flag(t_conv_specification *cs, const char *format);
 static void	set_min_field_width(t_conv_specification *cs, const char *format);
 static void	set_precision(t_conv_specification *cs, const char *format);
-static void	set_conversion_specifier(t_conv_specification *cs, const char *fmt);
+static void	read_cs(t_conv_specification *cs, const char *fmt);
 
 /**
  * get conversion specification.
@@ -35,7 +35,7 @@ t_conv_specification	*get_conv_specification(const char *format)
 	cs = new_t_conv_specification();
 	if (cs == NULL)
 		return (NULL);
-	set_flag (cs, format);
+	read_flag (cs, format);
 	while (is_flags(*format))
 		format++;
 	set_min_field_width(cs, format);
@@ -46,7 +46,7 @@ t_conv_specification	*get_conv_specification(const char *format)
 		format++;
 	while (ft_isdigit(*format))
 		format++;
-	set_conversion_specifier(cs, format);
+	read_cs(cs, format);
 	if (! is_conversion_specifier(*format) || errno == ERANGE)
 	{
 		free_t_conv_specification(cs);
@@ -55,7 +55,7 @@ t_conv_specification	*get_conv_specification(const char *format)
 	return (cs);
 }
 
-static void	set_flag(t_conv_specification *cs, const char *format)
+static void	read_flag(t_conv_specification *cs, const char *format)
 {
 	size_t	index;
 	char	flag;
@@ -97,7 +97,7 @@ static void	set_precision(t_conv_specification *cs, const char *format)
 	return ;
 }
 
-static void	set_conversion_specifier(t_conv_specification *cs, const char *fmt)
+static void	read_cs(t_conv_specification *cs, const char *fmt)
 {
 	if (*fmt == 'c')
 		cs->conversion_specifier = CS_LOWER_C;
