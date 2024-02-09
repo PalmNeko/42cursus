@@ -16,6 +16,14 @@
 #include <stdio.h>
 #include <limits.h>
 
+TEST(ft_printf, francinette)
+{
+	ASSERT_TRUE(check_ft_printf("%c ", '0' + 256));
+	ASSERT_TRUE(check_ft_printf(" %c", '0' - 256));
+	ASSERT_TRUE(check_ft_printf(" %c %c %c ", '0', 0, '1'));
+	ASSERT_TRUE(check_ft_printf(" %c %c %c ", '2', '1', 0));
+	ASSERT_TRUE(check_ft_printf(" %c %c %c ", 0, '1', '2'));
+}
 
 TEST(ft_printf, d)
 {
