@@ -36,17 +36,16 @@ SRCS += ./check_printf_format.c \
 ./conversion_specification/is_set_zero_precision.c \
 ./ft_printf.c \
 ./ft_vdprintf.c \
-./printers/conv_specification.c \
-./printers/print_char_fd.c \
-./printers/print_decimal_fd.c \
-./printers/print_hex_fd.c \
-./printers/print_hex_upper_fd.c \
-./printers/print_int_fd.c \
-./printers/print_percent_fd.c \
-./printers/print_pointer_fd.c \
-./printers/print_string_fd.c \
-./printers/print_uint_fd.c \
-./printers/print_va_list_fd.c \
+./ft_vdprint_cs/ft_vdprint_char_cs.c \
+./ft_vdprint_cs/ft_vdprint_cs.c \
+./ft_vdprint_cs/ft_vdprint_decimal_cs.c \
+./ft_vdprint_cs/ft_vdprint_hex_cs.c \
+./ft_vdprint_cs/ft_vdprint_hex_upper_cs.c \
+./ft_vdprint_cs/ft_vdprint_int_cs.c \
+./ft_vdprint_cs/ft_vdprint_percent_cs.c \
+./ft_vdprint_cs/ft_vdprint_pointer_cs.c \
+./ft_vdprint_cs/ft_vdprint_string_cs.c \
+./ft_vdprint_cs/ft_vdprint_uint_cs.c \
 ./utils/add_sign_with_cs.c \
 ./utils/gen_repeat_str.c \
 ./utils/gen_zero_pad_num_str.c \
@@ -59,7 +58,8 @@ INCLUDES = \
 	./conversion_specification/conversion_specification_utils.h \
 	./ft_printf.h \
 	./Libft/libft.h \
-	./printers/printers.h \
+	./ft_vdprint_cs/ft_vdprint_cs.h \
+	./ft_vdprint_cs/_ft_vdprint_cs.h \
 	./aligned_print/aligned_print.h \
 	./utils/string_util.h \
 
@@ -75,7 +75,7 @@ DEPENDS_BONUS = $(SRC_BONUS:.c=.d)
 CFLAGS += -MMD -MP
 INC_DIRS = \
 	conversion_specification \
-	printers \
+	ft_vdprint_cs \
 	utils \
 	aligned_print \
 	Libft \

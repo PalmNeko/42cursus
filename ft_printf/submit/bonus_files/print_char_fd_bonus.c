@@ -13,7 +13,7 @@
 #include <stdarg.h>
 #include "aligned_print_bonus.h"
 
-int	print_char_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_char_cs(int fd, t_conv_specification *cs, va_list args)
 {
 	int				print_len;
 	unsigned char	print_buf;

@@ -13,11 +13,13 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <limits.h>
+#include <unistd.h>
 #include "conversion_specification.h"
-#include "printers.h"
+#include "ft_vdprint_cs.h"
 #include "ft_printf.h"
 
 static int	print_cs(int fd, const char **format, va_list arg_ptr);
+static int	print_until_char_fd(int fd, const char *str, char c);
 
 int	ft_vdprintf(int fd, const char *format, va_list arg_ptr)
 {
@@ -57,11 +59,25 @@ static int	print_cs(int fd, const char **format, va_list arg_ptr)
 	cs = get_conv_specification(*format);
 	if (cs == NULL)
 		return (-1);
-	print_len = print_va_list_fd(fd, cs, arg_ptr);
+	print_len = ft_vdprint_cs(fd, cs, arg_ptr);
 	free_t_conv_specification(cs);
 	specification_len = get_conv_specification_len(*format);
 	if (specification_len < 0)
 		return (-1);
 	*format += specification_len;
 	return (print_len);
+}
+
+int	print_until_char_fd(int fd, const char *str, char c)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len] != c && str[len] != '\0' && len <= INT_MAX)
+		len++;
+	if (len > INT_MAX && str[len] != c && str[len] != '\0')
+		return (-1);
+	if (write(fd, str, len) < 0)
+		return (-1);
+	return ((int)len);
 }

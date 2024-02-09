@@ -57,7 +57,7 @@ static int	print_cs(int fd, const char **format, va_list arg_ptr)
 	cs = get_conv_specification(*format);
 	if (cs == NULL)
 		return (-1);
-	print_len = print_va_list_fd(fd, cs, arg_ptr);
+	print_len = ft_vdprint_cs(fd, cs, arg_ptr);
 	free_t_conv_specification(cs);
 	specification_len = get_conv_specification_len(*format);
 	if (specification_len < 0)

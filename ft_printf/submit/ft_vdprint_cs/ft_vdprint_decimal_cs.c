@@ -20,7 +20,7 @@
 
 int	print_decimal_fd_with_cs(int fd, t_conv_specification *cs, int value);
 
-int	print_decimal_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_decimal_cs(int fd, t_conv_specification *cs, va_list args)
 {
 	int		print_value;
 

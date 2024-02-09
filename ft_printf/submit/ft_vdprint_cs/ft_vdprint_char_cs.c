@@ -16,7 +16,7 @@
 int print_char_fd_with_cs(int fd, t_conv_specification *cs, char c);
 int print_char_fd_with_cs_str(int fd, t_conv_specification *cs, char *str);
 
-int	print_char_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_char_cs(int fd, t_conv_specification *cs, va_list args)
 {
 	int				print_len;
 	char	value;

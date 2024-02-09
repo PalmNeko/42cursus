@@ -12,7 +12,7 @@
 
 #include "printers_bonus.h"
 
-int	print_int_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_int_cs(int fd, t_conv_specification *cs, va_list args)
 {
-	return (print_decimal_fd(fd, cs, args));
+	return (ft_vdprint_decimal_cs(fd, cs, args));
 }

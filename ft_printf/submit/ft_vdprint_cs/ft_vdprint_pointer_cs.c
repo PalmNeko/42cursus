@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_pointer_fd_bonus.c                           :+:      :+:    :+:   */
+/*   print_pointer_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,14 +13,23 @@
 #include <stdarg.h>
 #include <stdarg.h>
 #include <stdlib.h>
-#include "conversion_specification_bonus.h"
-#include "aligned_print_bonus.h"
-#include "string_util_bonus.h"
+#include "conversion_specification.h"
+#include "aligned_print.h"
+#include "string_util.h"
 #include "libft.h"
 
 static char	*set_prefix_with_cs(t_conv_specification *cs, const char *str);
+int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value);
 
 int	ft_vdprint_pointer_cs(int fd, t_conv_specification *cs, va_list args)
+{
+	unsigned long value;
+
+	value = va_arg(args, unsigned long);
+	return (print_pointer_fd_with_cs(fd, cs, value));
+}
+
+int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value)
 {
 	char	*num_str;
 	char	*pad_zero_str;
@@ -28,8 +37,7 @@ int	ft_vdprint_pointer_cs(int fd, t_conv_specification *cs, va_list args)
 	int		print_len;
 
 	cs->flag_sharp = !0;
-	num_str = ft_ultoa_base_str(
-			va_arg(args, unsigned long), "0123456789abcdef");
+	num_str = ft_ultoa_base_str(value, "0123456789abcdef");
 	if (num_str == NULL)
 		return (-1);
 	tmp = set_prefix_with_cs(cs, num_str);

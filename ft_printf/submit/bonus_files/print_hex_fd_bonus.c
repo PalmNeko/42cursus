@@ -17,7 +17,7 @@
 #include "string_util_bonus.h"
 #include "libft.h"
 
-int	print_hex_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_hex_cs(int fd, t_conv_specification *cs, va_list args)
 {
 	char	*num_str;
 	char	*pad_zero_str;

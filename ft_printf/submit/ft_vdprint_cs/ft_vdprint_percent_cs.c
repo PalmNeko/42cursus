@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_specification.c                               :+:      :+:    :+:   */
+/*   print_percent_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 13:52:30 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 15:19:25 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/08 23:18:58 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/09 14:53:29 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include <stddef.h>
-#include <unistd.h>
+#include <stdarg.h>
+#include "conversion_specification.h"
+#include "aligned_print.h"
+#include "libft.h"
 
-int	print_until_char_fd(int fd, const char *str, char c)
+int	ft_vdprint_percent_cs(int fd, t_conv_specification *cs, va_list args)
 {
-	size_t	len;
+	int				print_len;
 
-	len = 0;
-	while (str[len] != c && str[len] != '\0' && len <= INT_MAX)
-		len++;
-	if (len > INT_MAX && str[len] != c && str[len] != '\0')
-		return (-1);
-	if (write(fd, str, len) < 0)
-		return (-1);
-	return ((int)len);
+	args = 0;
+	print_len = t_conv_aligned_print_char(fd, cs, '%');
+	return (print_len);
 }

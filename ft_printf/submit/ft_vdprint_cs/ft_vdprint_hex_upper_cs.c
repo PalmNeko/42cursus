@@ -1,50 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_pointer_fd.c                                 :+:      :+:    :+:   */
+/*   print_hex_upper_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 23:34:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 14:30:45 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/08 22:53:22 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/08 23:41:59 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdarg.h>
+#include <stddef.h>
 #include <stdlib.h>
 #include "conversion_specification.h"
 #include "aligned_print.h"
 #include "string_util.h"
 #include "libft.h"
 
-static char	*set_prefix_with_cs(t_conv_specification *cs, const char *str);
-int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value);
+int print_hex_upper_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value);
 
-int	print_pointer_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_hex_upper_cs(int fd, t_conv_specification *cs, va_list args)
 {
-	unsigned long value;
+	unsigned int value;
 
-	value = va_arg(args, unsigned long);
-	return (print_pointer_fd_with_cs(fd, cs, value));
+	value = va_arg(args, unsigned int);
+	return (print_hex_upper_fd_with_cs(fd, cs, value));
 }
 
-int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value)
+int print_hex_upper_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value)
 {
 	char	*num_str;
 	char	*pad_zero_str;
 	char	*tmp;
 	int		print_len;
 
-	cs->flag_sharp = !0;
-	num_str = ft_ultoa_base_str(value, "0123456789abcdef");
+	num_str = ft_utoa_base_str(value, "0123456789ABCDEF");
 	if (num_str == NULL)
 		return (-1);
-	tmp = set_prefix_with_cs(cs, num_str);
-	free(num_str);
-	if (tmp == NULL)
-		return (-1);
-	num_str = tmp;
+	if (cs->flag_sharp != 0)
+	{
+		tmp = ft_strjoin("0X", num_str);
+		free(num_str);
+		if (tmp == NULL)
+			return (-1);
+		num_str = tmp;
+	}
 	pad_zero_str = zero_pad_with_cs(cs, num_str);
 	free(num_str);
 	if (pad_zero_str == NULL)
@@ -53,11 +54,4 @@ int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long val
 	print_len = t_conv_aligned_print(fd, cs, pad_zero_str);
 	free(pad_zero_str);
 	return (print_len);
-}
-
-static char	*set_prefix_with_cs(t_conv_specification *cs, const char *str)
-{
-	if (cs->flag_sharp != 0)
-		return (ft_strjoin("0x", str));
-	return (ft_strdup(str));
 }

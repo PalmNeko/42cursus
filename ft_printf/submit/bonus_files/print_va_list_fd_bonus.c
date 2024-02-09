@@ -13,18 +13,18 @@
 #include "conversion_specification_bonus.h"
 #include "printers_bonus.h"
 
-int	print_va_list_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_cs(int fd, t_conv_specification *cs, va_list args)
 {
 	const t_relational_conversion_specifier_and_print_function	relation[] = {
-	{.specifier = CS_LOWER_S, .p_function = print_string_fd},
-	{.specifier = CS_LOWER_P, .p_function = print_pointer_fd},
-	{.specifier = CS_LOWER_C, .p_function = print_char_fd},
-	{.specifier = CS_LOWER_D, .p_function = print_decimal_fd},
-	{.specifier = CS_LOWER_U, .p_function = print_uint_fd},
-	{.specifier = CS_LOWER_I, .p_function = print_int_fd},
-	{.specifier = CS_LOWER_X, .p_function = print_hex_fd},
-	{.specifier = CS_UPPER_X, .p_function = print_hex_upper_fd},
-	{.specifier = CS_PERCENT, .p_function = print_percent_fd}};
+	{.specifier = CS_LOWER_S, .p_function = ft_vdprint_string_cs},
+	{.specifier = CS_LOWER_P, .p_function = ft_vdprint_pointer_cs},
+	{.specifier = CS_LOWER_C, .p_function = ft_vdprint_char_cs},
+	{.specifier = CS_LOWER_D, .p_function = ft_vdprint_decimal_cs},
+	{.specifier = CS_LOWER_U, .p_function = ft_vdprint_uint_cs},
+	{.specifier = CS_LOWER_I, .p_function = ft_vdprint_int_cs},
+	{.specifier = CS_LOWER_X, .p_function = ft_vdprint_hex_cs},
+	{.specifier = CS_UPPER_X, .p_function = ft_vdprint_hex_upper_cs},
+	{.specifier = CS_PERCENT, .p_function = ft_vdprint_percent_cs}};
 	int															relation_size;
 	int															index;
 

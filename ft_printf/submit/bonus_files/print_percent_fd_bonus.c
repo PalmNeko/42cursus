@@ -16,7 +16,7 @@
 #include "aligned_print_bonus.h"
 #include "libft.h"
 
-int	print_percent_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_percent_cs(int fd, t_conv_specification *cs, va_list args)
 {
 	int				print_len;
 

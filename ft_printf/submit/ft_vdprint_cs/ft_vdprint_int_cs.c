@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_percent_fd.c                                 :+:      :+:    :+:   */
+/*   print_int_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 23:18:58 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 14:53:29 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/07 17:13:37 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/07 17:14:46 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdarg.h>
-#include "conversion_specification.h"
-#include "aligned_print.h"
-#include "libft.h"
+#include "_ft_vdprint_cs.h"
 
-int	print_percent_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_int_cs(int fd, t_conv_specification *cs, va_list args)
 {
-	int				print_len;
-
-	args = 0;
-	print_len = t_conv_aligned_print_char(fd, cs, '%');
-	return (print_len);
+	return (ft_vdprint_decimal_cs(fd, cs, args));
 }

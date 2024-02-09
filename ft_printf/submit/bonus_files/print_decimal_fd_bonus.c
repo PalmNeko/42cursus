@@ -18,7 +18,7 @@
 #include "aligned_print_bonus.h"
 #include "conversion_specification_utils_bonus.h"
 
-int	print_decimal_fd(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_decimal_cs(int fd, t_conv_specification *cs, va_list args)
 {
 	char	*num_str;
 	char	*pad_zero_str;
