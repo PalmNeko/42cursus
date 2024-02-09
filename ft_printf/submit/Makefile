@@ -25,6 +25,9 @@ SRCS += ./check_printf_format.c \
 ./conversion_specification/get_conv_specification.c \
 ./conversion_specification/get_conv_specification_len.c \
 ./conversion_specification/new_t_conv_specification.c \
+./conversion_specification/is_conversion_specifier.c \
+./conversion_specification/is_flag.c \
+./conversion_specification/is_set_zero_precision.c \
 ./ft_printf.c \
 ./ft_vdprintf.c \
 ./printers/conv_specification.c \
@@ -41,9 +44,6 @@ SRCS += ./check_printf_format.c \
 ./utils/add_sign_with_cs.c \
 ./utils/gen_repeat_str.c \
 ./utils/gen_zero_pad_num_str.c \
-./utils/is_conversion_specifier.c \
-./utils/is_flag.c \
-./utils/is_set_zero_precision.c \
 ./utils/left_aligned_print.c \
 ./utils/left_aligned_print_char.c \
 ./utils/pad_zero_str.c \
@@ -56,11 +56,11 @@ SRCS += ./check_printf_format.c \
 
 INCLUDES = \
 	./conversion_specification/conversion_specification.h \
+	./conversion_specification/conversion_specification_utils.h \
 	./ft_printf.h \
 	./Libft/libft.h \
 	./printers/printers.h \
 	./utils/aligned_print.h \
-	./utils/conversion_specification_utils.h \
 	./utils/string_util.h \
 
 OBJS = $(SRCS:.c=.o)

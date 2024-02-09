@@ -14,16 +14,21 @@
 #include <stdlib.h>
 #include "libft.h"
 #include "conversion_specification_bonus.h"
+#include "conversion_specification_utils_bonus.h"
 #include "string_util_bonus.h"
 #include "aligned_print_bonus.h"
 
 int	print_uint_fd(int fd, t_conv_specification *cs, va_list args)
 {
-	char	*num_str;
-	char	*pad_zero_str;
-	int		print_len;
+	char			*num_str;
+	char			*pad_zero_str;
+	int				print_len;
+	unsigned int	print_value;
 
-	num_str = ft_utoa(va_arg(args, unsigned int));
+	print_value = va_arg(args, unsigned int);
+	if (is_set_zero_precision(cs) && print_value == 0)
+		return (0);
+	num_str = ft_utoa(print_value);
 	if (num_str == NULL)
 		return (-1);
 	pad_zero_str = zero_pad_with_cs(cs, num_str);
