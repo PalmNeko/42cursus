@@ -43,6 +43,7 @@ SRCS += ./check_printf_format.c \
 ./utils/gen_zero_pad_num_str.c \
 ./utils/is_conversion_specifier.c \
 ./utils/is_flag.c \
+./utils/is_set_zero_precision.c \
 ./utils/left_aligned_print.c \
 ./utils/left_aligned_print_char.c \
 ./utils/pad_zero_str.c \

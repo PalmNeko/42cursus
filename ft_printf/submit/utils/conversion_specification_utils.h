@@ -13,7 +13,11 @@
 #ifndef CONVERSION_SPECIFICATION_UTILS_H
 # define CONVERSION_SPECIFICATION_UTILS_H
 
+# include "conversion_specification.h"
+# include <stdbool.h>
+
 int	is_flags(char c);
 int	is_conversion_specifier(char c);
+bool is_set_zero_precision(t_conv_specification *cs);
 
 #endif
