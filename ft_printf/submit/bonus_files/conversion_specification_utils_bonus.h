@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversion_specification_utils_bonus.h             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:14:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:48:41 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "conversion_specification_bonus.h"
 # include <stdbool.h>
 
-int	is_flags(char c);
-int	is_conversion_specifier(char c);
-bool is_set_zero_precision(t_conv_specification *cs);
+int		is_flags(char c);
+int		is_conversion_specifier(char c);
+bool	is_set_zero_precision(t_cs *cs);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_uint_fd.c                                    :+:      :+:    :+:   */
+/*   ft_vdprint_uint_cs.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:31:31 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 16:01:51 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:47:25 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #include "string_util.h"
 #include "aligned_print.h"
 
-int	print_uint_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value);
+int	print_uint_fd_with_cs(int fd, t_cs *cs, unsigned int value);
 
-int ft_vdprint_uint_cs(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_uint_cs(int fd, t_cs *cs, va_list args)
 {
 	int	value;
 
@@ -28,7 +28,7 @@ int ft_vdprint_uint_cs(int fd, t_conv_specification *cs, va_list args)
 	return (print_uint_fd_with_cs(fd, cs, value));
 }
 
-int	print_uint_fd_with_cs(int fd, t_conv_specification *cs, unsigned int value)
+int	print_uint_fd_with_cs(int fd, t_cs *cs, unsigned int value)
 {
 	char			*num_str;
 	char			*pad_zero_str;

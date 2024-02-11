@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   zero_pad_with_cs_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:43:19 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 16:46:14 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_specification_bonus.h"
 #include "string_util_bonus.h"
 
-char	*zero_pad_with_cs(t_conv_specification *cs, char *num_str)
+char	*zero_pad_with_cs(t_cs *cs, char *num_str)
 {
 	int		pad_zero_min_width;
 

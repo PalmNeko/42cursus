@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_string_fd_bonus.c                            :+:      :+:    :+:   */
+/*   ft_vdprint_string_cs_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 23:22:10 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 13:58:13 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:46:08 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,22 @@
 #include "aligned_print_bonus.h"
 
 static char	*replace_null(const char *str);
-static char	*substr_with_cs(t_conv_specification *cs, const char *str);
+static char	*substr_with_cs(t_cs *cs, const char *str);
+int			print_string_fd_with_cs(int fd, t_cs *cs, char *output_str);
 
-int	ft_vdprint_string_cs(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_string_cs(int fd, t_cs *cs, va_list args)
 {
-	int		print_len;
 	char	*output_str;
-	char	*tmp;
 
 	output_str = va_arg(args, char *);
+	return (print_string_fd_with_cs(fd, cs, output_str));
+}
+
+int	print_string_fd_with_cs(int fd, t_cs *cs, char *output_str)
+{
+	int		print_len;
+	char	*tmp;
+
 	tmp = replace_null(output_str);
 	if (tmp == NULL)
 		return (-1);
@@ -48,7 +55,7 @@ static char	*replace_null(const char *str)
 	return (ft_strdup(str));
 }
 
-static char	*substr_with_cs(t_conv_specification *cs, const char *str)
+static char	*substr_with_cs(t_cs *cs, const char *str)
 {
 	if (cs->is_specified_precision != 0)
 		return (ft_substr(str, 0, cs->precision));

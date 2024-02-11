@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _ft_vdprint_cs.h                                   :+:      :+:    :+:   */
+/*   _ft_vdprint_cs_bonus.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FT_VDPRINT_CS_H
-# define _FT_VDPRINT_CS_H
+#ifndef _FT_VDPRINT_CS_BONUS_H
+# define _FT_VDPRINT_CS_BONUS_H
 
 # include <stdarg.h>
-# include "conversion_specification.h"
+# include "conversion_specification_bonus.h"
 
 typedef int	(*t_print_function)(int, t_cs *, va_list);
 typedef struct s_relational_conversion_specifier_and_print_function {

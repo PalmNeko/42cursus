@@ -52,16 +52,16 @@ int	ft_vdprintf(int fd, const char *format, va_list arg_ptr)
 
 static int	print_cs(int fd, const char **format, va_list arg_ptr)
 {
-	t_conv_specification	*cs;
-	int						print_len;
-	int						specification_len;
+	t_cs	*cs;
+	int		print_len;
+	int		specification_len;
 
-	cs = get_conv_specification(*format);
+	cs = generate_cs(*format);
 	if (cs == NULL)
 		return (-1);
 	print_len = ft_vdprint_cs(fd, cs, arg_ptr);
-	free_t_conv_specification(cs);
-	specification_len = get_conv_specification_len(*format);
+	free_t_cs(cs);
+	specification_len = get_cs_len(*format);
 	if (specification_len < 0)
 		return (-1);
 	*format += specification_len;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_decimal_fd_bonus.c                           :+:      :+:    :+:   */
+/*   ft_vdprint_decimal_cs_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:17:14 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 16:01:21 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,26 @@
 #include "aligned_print_bonus.h"
 #include "conversion_specification_utils_bonus.h"
 
-int	ft_vdprint_decimal_cs(int fd, t_conv_specification *cs, va_list args)
+int	print_decimal_fd_with_cs(int fd, t_cs *cs, int value);
+
+int	ft_vdprint_decimal_cs(int fd, t_cs *cs, va_list args)
+{
+	int		print_value;
+
+	print_value = va_arg(args, int);
+	return (print_decimal_fd_with_cs(fd, cs, print_value));
+}
+
+int	print_decimal_fd_with_cs(int fd, t_cs *cs, int value)
 {
 	char	*num_str;
 	char	*pad_zero_str;
 	char	*joined_sign_str;
 	int		print_len;
-	int		print_value;
 
-	print_value = va_arg(args, int);
-	if (is_set_zero_precision(cs) && print_value == 0)
+	if (is_set_zero_precision(cs) && value == 0)
 		return (0);
-	num_str = ft_itoa(print_value);
+	num_str = ft_itoa(value);
 	if (num_str == NULL)
 		return (-1);
 	pad_zero_str = zero_pad_with_cs(cs, num_str);

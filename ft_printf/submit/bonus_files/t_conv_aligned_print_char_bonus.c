@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_conv_aligned_print_char_bonus.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:08:00 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 13:55:31 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "conversion_specification_utils_bonus.h"
 #include "aligned_print_bonus.h"
 
-int	t_conv_aligned_print_char(int fd, t_conv_specification *cs, char c)
+int	t_conv_aligned_print_char(int fd, t_cs *cs, char c)
 {
 	int	min_len;
 	int	print_len;

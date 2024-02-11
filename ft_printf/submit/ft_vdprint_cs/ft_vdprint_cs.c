@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_va_list_fd.c                                 :+:      :+:    :+:   */
+/*   ft_vdprint_cs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:36:59 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:38:52 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_specification.h"
 #include "_ft_vdprint_cs.h"
 
-int	ft_vdprint_cs(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_cs(int fd, t_cs *cs, va_list args)
 {
 	const t_relational_conversion_specifier_and_print_function	relation[] = {
 	{.specifier = CS_LOWER_S, .p_function = ft_vdprint_string_cs},

@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_specification_bonus.c                         :+:      :+:    :+:   */
+/*   free_t_cs.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 13:52:30 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 15:19:25 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/06 14:14:31 by tookuyam          #+#    #+#             */
+/*   Updated: 2023/11/06 14:16:10 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stddef.h>
-#include <unistd.h>
+#include <stdlib.h>
+#include "conversion_specification.h"
 
-int	print_until_char_fd(int fd, const char *str, char c)
+void	free_t_cs(t_cs *ptr)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] != c && str[len] != '\0' && len <= INT_MAX)
-		len++;
-	if (len > INT_MAX && str[len] != c && str[len] != '\0')
-		return (-1);
-	if (write(fd, str, len) < 0)
-		return (-1);
-	return ((int)len);
+	free(ptr);
+	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_printf_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:38:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 16:37:05 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_printf_format(const char *format)
 	{
 		if (check_conv_specification_format(conv_specification) == 0)
 			return (0);
-		tmp_len = get_conv_specification_len(conv_specification);
+		tmp_len = get_cs_len(conv_specification);
 		if (tmp_len < 0)
 			return (-1);
 		conv_specification += tmp_len;

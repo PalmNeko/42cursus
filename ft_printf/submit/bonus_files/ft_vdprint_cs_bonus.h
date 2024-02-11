@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int_fd_bonus.c                               :+:      :+:    :+:   */
+/*   ft_vdprint_cs_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:13:37 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/07 17:14:46 by tookuyam         ###   ########.fr       */
+/*   Created: 2024/02/11 14:33:51 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/02/11 14:44:47 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printers_bonus.h"
+#ifndef FT_VDPRINT_CS_BONUS_H
+# define FT_VDPRINT_CS_BONUS_H
 
-int	ft_vdprint_int_cs(int fd, t_conv_specification *cs, va_list args)
-{
-	return (ft_vdprint_decimal_cs(fd, cs, args));
-}
+# include <stdarg.h>
+# include "conversion_specification_bonus.h"
+
+int	ft_vdprint_cs(int fd, t_cs *cs, va_list args);
+
+#endif

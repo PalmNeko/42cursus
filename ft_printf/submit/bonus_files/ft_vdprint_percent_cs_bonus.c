@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_t_conv_specification_bonus.c            :+:      :+:    :+:   */
+/*   ft_vdprint_percent_cs_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 14:14:31 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 14:16:10 by tookuyam         ###   ########.fr       */
+/*   Created: 2023/11/08 23:18:58 by tookuyam          #+#    #+#             */
+/*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
+#include <stdarg.h>
 #include "conversion_specification_bonus.h"
+#include "libft.h"
+#include "_ft_vdprint_cs_bonus.h"
 
-void	free_t_conv_specification(t_conv_specification *ptr)
+int	ft_vdprint_percent_cs(int fd, t_cs *cs, va_list args)
 {
-	free(ptr);
-	return ;
+	int				print_len;
+
+	args = 0;
+	print_len = print_char_fd_with_cs(fd, cs, '%');
+	return (print_len);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversion_specification_bonus.h                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:49:40 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:53:18 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:43:58 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ typedef struct s_conv_specification
 	int						minimum_field_width;
 	int						is_specified_precision;
 	int						precision;
-}	t_conv_specification;
+}	t_cs;
 
-t_conv_specification	*new_t_conv_specification(void);
-t_conv_specification	*get_conv_specification(const char *format);
-int						get_conv_specification_len(const char *format);
-void					free_t_conv_specification(t_conv_specification *ptr);
-int						check_conv_specification_format(const char *cs_format);
+t_cs	*new_t_cs(void);
+t_cs	*generate_cs(const char *format);
+int		get_cs_len(const char *format);
+void	free_t_cs(t_cs *ptr);
+int		check_conv_specification_format(const char *cs_format);
 
 #endif

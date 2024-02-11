@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_conv_specification_len_bonus.c           :+:      :+:    :+:   */
+/*   get_cs_len_bonus.c           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -21,7 +21,7 @@
  * @return return conversion specification length if of success.
  * negative value if of error.
 */
-int	get_conv_specification_len(const char *format)
+int	get_cs_len(const char *format)
 {
 	size_t	index;
 

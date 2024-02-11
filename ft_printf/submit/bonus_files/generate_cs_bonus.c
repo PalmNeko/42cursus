@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_conv_specification.c                     :+:      :+:    :+:   */
+/*   get_cs.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conversion_specification.h"
-#include "conversion_specification_utils.h"
+#include "conversion_specification_bonus.h"
+#include "conversion_specification_utils_bonus.h"
 #include "libft.h"
 #include <stdlib.h>
 #include <errno.h>
 
-static void	read_flag(t_conv_specification *cs, const char **format);
-static void	read_min_field_width(t_conv_specification *cs, const char **format);
-static void	read_precision(t_conv_specification *cs, const char **format);
-static void	read_cs(t_conv_specification *cs, const char **fmt);
+static void	read_flag(t_cs *cs, const char **format);
+static void	read_min_field_width(t_cs *cs, const char **format);
+static void	read_precision(t_cs *cs, const char **format);
+static void	read_cs(t_cs *cs, const char **fmt);
 
 /**
  * get conversion specification.
  * @param format conversion format
  * @return
  */
-t_conv_specification	*get_conv_specification(const char *format)
+t_cs	*generate_cs(const char *format)
 {
-	t_conv_specification	*cs;
+	t_cs	*cs;
 
 	if (*format++ != '%')
 		return (NULL);
-	cs = new_t_conv_specification();
+	cs = new_t_cs();
 	if (cs == NULL)
 		return (NULL);
 	read_flag (cs, &format);
@@ -41,13 +41,13 @@ t_conv_specification	*get_conv_specification(const char *format)
 	read_cs(cs, &format);
 	if (cs->conversion_specifier == CS_NONE || errno == ERANGE)
 	{
-		free_t_conv_specification(cs);
+		free_t_cs(cs);
 		return (NULL);
 	}
 	return (cs);
 }
 
-static void	read_flag(t_conv_specification *cs, const char **format)
+static void	read_flag(t_cs *cs, const char **format)
 {
 	char	flag;
 
@@ -69,7 +69,7 @@ static void	read_flag(t_conv_specification *cs, const char **format)
 	return ;
 }
 
-static void	read_min_field_width(t_conv_specification *cs, const char **format)
+static void	read_min_field_width(t_cs *cs, const char **format)
 {
 	if (! ft_isdigit(**format))
 		return ;
@@ -80,7 +80,7 @@ static void	read_min_field_width(t_conv_specification *cs, const char **format)
 	return ;
 }
 
-static void	read_precision(t_conv_specification *cs, const char **format)
+static void	read_precision(t_cs *cs, const char **format)
 {
 	if (**format != '.')
 		return ;
@@ -92,7 +92,7 @@ static void	read_precision(t_conv_specification *cs, const char **format)
 	return ;
 }
 
-static void	read_cs(t_conv_specification *cs, const char **fmt)
+static void	read_cs(t_cs *cs, const char **fmt)
 {
 	if (**fmt == 'c')
 		cs->conversion_specifier = CS_LOWER_C;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generate_ul_hex_with_cs.c                          :+:      :+:    :+:   */
+/*   generate_ul_hex_with_cs_bonus.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,8 +12,8 @@
 
 #include <stdlib.h>
 #include "libft.h"
-#include "conversion_specification.h"
-#include "string_util.h"
+#include "conversion_specification_bonus.h"
+#include "string_util_bonus.h"
 
 static char	*set_prefix_with_cs(t_cs *cs, const char *str);
 

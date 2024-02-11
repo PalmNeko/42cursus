@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zero_pad_with_cs.c                                 :+:      :+:    :+:   */
+/*   ft_vdprint_int_cs_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 16:43:19 by tookuyam          #+#    #+#             */
+/*   Created: 2023/11/07 17:13:37 by tookuyam          #+#    #+#             */
 /*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "conversion_specification.h"
-#include "string_util.h"
+#include "_ft_vdprint_cs_bonus.h"
 
-char	*zero_pad_with_cs(t_cs *cs, char *num_str)
+int	ft_vdprint_int_cs(int fd, t_cs *cs, va_list args)
 {
-	int		pad_zero_min_width;
-
-	pad_zero_min_width = 0;
-	if (cs->is_specified_precision != 0)
-		pad_zero_min_width = cs->precision;
-	else if (cs->flag_zero != 0
-		&& cs->is_specified_min_field_width != 0
-		&& cs->flag_minus == 0)
-		pad_zero_min_width = cs->minimum_field_width;
-	return (gen_zero_pad_num_str(num_str, pad_zero_min_width));
+	return (ft_vdprint_decimal_cs(fd, cs, args));
 }

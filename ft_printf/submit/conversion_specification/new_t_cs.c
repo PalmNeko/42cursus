@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_t_conv_specification.c                   :+:      :+:    :+:   */
+/*   new_t_cs.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,15 +13,15 @@
 #include "conversion_specification.h"
 #include <stdlib.h>
 
-t_conv_specification	*new_t_conv_specification(void)
+t_cs	*new_t_cs(void)
 {
-	t_conv_specification	*cs;
+	t_cs	*cs;
 
-	cs = (t_conv_specification *)malloc(
-			sizeof(t_conv_specification));
+	cs = (t_cs *)malloc(
+			sizeof(t_cs));
 	if (cs == NULL)
 		return (NULL);
-	*cs = (t_conv_specification){
+	*cs = (t_cs){
 		.conversion_specifier = CS_NONE,
 		.flag_minus = 0,
 		.flag_plus = 0,

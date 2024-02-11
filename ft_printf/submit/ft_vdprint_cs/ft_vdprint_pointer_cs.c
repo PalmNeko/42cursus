@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_pointer_fd.c                                 :+:      :+:    :+:   */
+/*   ft_vdprint_pointer_cs.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 23:34:48 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 14:30:45 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 14:45:18 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@
 #include "libft.h"
 #include "_ft_vdprint_cs.h"
 
-int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value);
+int	print_pointer_fd_with_cs(int fd, t_cs *cs, unsigned long value);
 
-int	ft_vdprint_pointer_cs(int fd, t_conv_specification *cs, va_list args)
+int	ft_vdprint_pointer_cs(int fd, t_cs *cs, va_list args)
 {
-	unsigned long value;
+	unsigned long	value;
 
 	value = va_arg(args, unsigned long);
 	return (print_pointer_fd_with_cs(fd, cs, value));
 }
 
-int	print_pointer_fd_with_cs(int fd, t_conv_specification *cs, unsigned long value)
+int	print_pointer_fd_with_cs(int fd, t_cs *cs, unsigned long value)
 {
 	char	*pad_zero_str;
 	int		print_len;

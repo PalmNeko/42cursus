@@ -6,7 +6,7 @@
 #    By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 16:10:34 by tookuyam          #+#    #+#              #
-#    Updated: 2024/02/09 19:25:04 by tookuyam         ###   ########.fr        #
+#    Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,10 @@ SRCS += ./check_printf_format.c \
 ./aligned_print/t_conv_aligned_print.c \
 ./aligned_print/t_conv_aligned_print_char.c \
 ./conversion_specification/check_conv_specification_format.c \
-./conversion_specification/free_t_conv_specification.c \
-./conversion_specification/get_conv_specification.c \
-./conversion_specification/get_conv_specification_len.c \
-./conversion_specification/new_t_conv_specification.c \
+./conversion_specification/free_t_cs.c \
+./conversion_specification/generate_cs.c \
+./conversion_specification/get_cs_len.c \
+./conversion_specification/new_t_cs.c \
 ./conversion_specification/is_conversion_specifier.c \
 ./conversion_specification/is_flag.c \
 ./conversion_specification/is_set_zero_precision.c \
