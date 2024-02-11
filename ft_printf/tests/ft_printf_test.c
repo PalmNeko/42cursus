@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:26:23 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/06 16:23:53 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 16:07:39 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ TEST(ft_printf, francinette)
 	ASSERT_TRUE(check_ft_printf(" %c %c %c ", '0', 0, '1'));
 	ASSERT_TRUE(check_ft_printf(" %c %c %c ", '2', '1', 0));
 	ASSERT_TRUE(check_ft_printf(" %c %c %c ", 0, '1', '2'));
+	ASSERT_TRUE(check_ft_printf("%p", ""));
+	ASSERT_TRUE(check_ft_printf("%p", (void *)-14523));
 }
 
 TEST(ft_printf, d)
@@ -161,6 +163,7 @@ TEST(ft_printf, u)
 TEST(ft_printf, x)
 {
 	unsigned int check_values[] = {
+		0,
 		1,
 		2,
 		10,
@@ -183,6 +186,7 @@ TEST(ft_printf, x)
 TEST(ft_printf, X)
 {
 	unsigned int check_values[] = {
+		0,
 		1,
 		2,
 		10,

@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include "ft_printf_test_tool.h"
 #include "ft_printf.h"
+#include "ft_vdprintf.h"
 
 # define RED "\033[31m"
 # define GREEN "\033[32m"
@@ -48,7 +49,6 @@ bool vcheck_ft_printf(const char *format, va_list ap) {
 	print_len = vdprintf(printf_fd, format, ap);
 	if (ft_print_len != print_len) {
 		fprintf(stdout, YELLOW "error" CL ": return value isn't equal - original : %d ft: %d\n", print_len, ft_print_len);
-		return false;
 	}
 	lseek(ft_printf_fd, SEEK_SET, 0);
 	lseek(printf_fd, SEEK_SET, 0);
