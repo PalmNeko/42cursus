@@ -6,7 +6,7 @@
 #    By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 16:10:34 by tookuyam          #+#    #+#              #
-#    Updated: 2024/02/11 16:26:52 by tookuyam         ###   ########.fr        #
+#    Updated: 2024/02/11 17:15:25 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,7 @@ ifeq ($(MAKECMDGOALS), debug)
 endif
 
 # all
-all: $(NAME) $(NAME_BONUS)
+all: $(NAME)
 
 -include $(DEPENDS)
 -include $(DEPENDS_BONUS)
@@ -100,7 +100,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	cp $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(filter %.o, $?)
 
-$(NAME_BONUS): $(LIBFT) $(OBJS_BONUS)
+$(NAME_BONUS): update_bonus $(LIBFT) $(OBJS_BONUS)
 	cp $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(filter %.o, $?)
 	date > bonus
