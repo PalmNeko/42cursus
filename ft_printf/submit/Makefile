@@ -6,7 +6,7 @@
 #    By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 16:10:34 by tookuyam          #+#    #+#              #
-#    Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr        #
+#    Updated: 2024/02/11 15:21:26 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,10 +47,6 @@ SRCS += ./check_printf_format.c \
 ./ft_vdprint_cs/ft_vdprint_string_cs.c \
 ./ft_vdprint_cs/ft_vdprint_uint_cs.c \
 ./ft_vdprint_cs/generate_ul_hex_with_cs.c \
-./utils/add_sign_with_cs.c \
-./utils/ft_toupper_str.c \
-./utils/gen_repeat_str.c \
-./utils/gen_zero_pad_num_str.c \
 ./utils/pad_zero_str.c \
 ./utils/repeat_print_fd.c \
 ./utils/zero_pad_with_cs.c

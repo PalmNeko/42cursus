@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_conv_specification_format_bonus.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:26:35 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 15:55:14 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:05:23 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int	check_conv_specification_format(const char *cs_format)
 		cs_format++;
 	if (! is_conversion_specifier(*cs_format))
 		return (0);
-	return (!0);
+	return (true);
 }

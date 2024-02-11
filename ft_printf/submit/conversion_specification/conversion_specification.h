@@ -6,12 +6,14 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:49:40 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 14:43:58 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:03:53 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONVERSION_SPECIFICATION_H
 # define CONVERSION_SPECIFICATION_H
+
+# include <stdbool.h>
 
 // conversion specifier
 typedef enum e_conversion_specifier
@@ -43,14 +45,14 @@ typedef enum e_conversion_specifier
 typedef struct s_conv_specification
 {
 	t_conversion_specifier	conversion_specifier;
-	int						flag_sharp;
-	int						flag_minus;
-	int						flag_plus;
-	int						flag_zero;
-	int						flag_space;
-	int						is_specified_min_field_width;
+	bool					flag_sharp;
+	bool					flag_minus;
+	bool					flag_plus;
+	bool					flag_zero;
+	bool					flag_space;
+	bool					is_specified_min_field_width;
 	int						minimum_field_width;
-	int						is_specified_precision;
+	bool					is_specified_precision;
 	int						precision;
 }	t_cs;
 

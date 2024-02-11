@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:38:11 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 14:37:20 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:05:23 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	check_printf_format(const char *format)
 		conv_specification += tmp_len;
 		conv_specification = ft_strchr(conv_specification, '%');
 	}
-	return (!0);
+	return (true);
 }

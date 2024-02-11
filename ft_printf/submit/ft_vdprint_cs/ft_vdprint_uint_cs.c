@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:31:31 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 14:47:25 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:11:42 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	print_uint_fd_with_cs(int fd, t_cs *cs, unsigned int value)
 	free(num_str);
 	if (pad_zero_str == NULL)
 		return (-1);
-	cs->flag_zero = 0;
+	cs->flag_zero = false;
 	print_len = t_conv_aligned_print(fd, cs, pad_zero_str);
 	free(pad_zero_str);
 	return (print_len);

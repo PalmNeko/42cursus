@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 14:46:38 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 14:48:58 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:10:46 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*generate_ul_hex_with_cs(t_cs *cs, unsigned long value)
 
 static char	*set_prefix_with_cs(t_cs *cs, const char *str)
 {
-	if (cs->flag_sharp != 0)
+	if (cs->flag_sharp != false)
 		return (ft_strjoin("0x", str));
 	return (ft_strdup(str));
 }

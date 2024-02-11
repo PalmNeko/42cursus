@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 23:22:10 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 14:46:08 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:12:32 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char	*replace_null(const char *str)
 
 static char	*substr_with_cs(t_cs *cs, const char *str)
 {
-	if (cs->is_specified_precision != 0)
+	if (cs->is_specified_precision != false)
 		return (ft_substr(str, 0, cs->precision));
 	return (ft_strdup(str));
 }

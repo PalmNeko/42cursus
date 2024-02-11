@@ -55,15 +55,15 @@ static void	read_flag(t_cs *cs, const char **format)
 	{
 		flag = **format;
 		if (flag == '#')
-			cs->flag_sharp = !0;
+			cs->flag_sharp = true;
 		else if (flag == '0')
-			cs->flag_zero = !0;
+			cs->flag_zero = true;
 		else if (flag == '-')
-			cs->flag_minus = !0;
+			cs->flag_minus = true;
 		else if (flag == ' ')
-			cs->flag_space = !0;
+			cs->flag_space = true;
 		else if (flag == '+')
-			cs->flag_plus = !0;
+			cs->flag_plus = true;
 		*format += 1;
 	}
 	return ;
@@ -73,7 +73,7 @@ static void	read_min_field_width(t_cs *cs, const char **format)
 {
 	if (! ft_isdigit(**format))
 		return ;
-	cs->is_specified_min_field_width = !0;
+	cs->is_specified_min_field_width = true;
 	cs->minimum_field_width = ft_atoi(*format);
 	while (ft_isdigit(**format))
 		*format += 1;
@@ -85,7 +85,7 @@ static void	read_precision(t_cs *cs, const char **format)
 	if (**format != '.')
 		return ;
 	*format += 1;
-	cs->is_specified_precision = !0;
+	cs->is_specified_precision = true;
 	cs->precision = ft_atoi(*format);
 	while (ft_isdigit(**format))
 		*format += 1;

@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   is_conversion_specifier_bonus.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:14:52 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/06 13:23:38 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:05:23 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdbool.h>
 
 /** is it equal to conversion specifier character.
  * @param c check character.
  * @return return non-zero if `No`, return zero if `Yes`.
 */
-int	is_conversion_specifier(char c)
+bool	is_conversion_specifier(char c)
 {
 	if (c == 's'
 		|| c == 'd'
@@ -25,6 +27,6 @@ int	is_conversion_specifier(char c)
 		|| c == '%'
 		|| c == 'x'
 		|| c == 'X')
-		return (!0);
+		return (true);
 	return (0);
 }
