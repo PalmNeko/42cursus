@@ -6,7 +6,7 @@
 #    By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 16:10:34 by tookuyam          #+#    #+#              #
-#    Updated: 2024/02/11 15:21:26 by tookuyam         ###   ########.fr        #
+#    Updated: 2024/02/11 16:26:52 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,47 +19,48 @@ LIBFT = Libft/libft.a
 # compile settings
 CC = cc
 CFLAGS += -Wall -Werror -Wextra
-SRCS += ./check_printf_format.c \
-./aligned_print/left_aligned_print.c \
-./aligned_print/left_aligned_print_char.c \
-./aligned_print/right_aligned_print.c \
-./aligned_print/right_aligned_print_char.c \
-./aligned_print/t_conv_aligned_print.c \
-./aligned_print/t_conv_aligned_print_char.c \
-./conversion_specification/check_conv_specification_format.c \
-./conversion_specification/free_t_cs.c \
-./conversion_specification/generate_cs.c \
-./conversion_specification/get_cs_len.c \
-./conversion_specification/new_t_cs.c \
-./conversion_specification/is_conversion_specifier.c \
-./conversion_specification/is_flag.c \
-./conversion_specification/is_set_zero_precision.c \
-./ft_printf.c \
-./ft_vdprintf.c \
-./ft_vdprint_cs/ft_vdprint_char_cs.c \
-./ft_vdprint_cs/ft_vdprint_cs.c \
-./ft_vdprint_cs/ft_vdprint_decimal_cs.c \
-./ft_vdprint_cs/ft_vdprint_hex_cs.c \
-./ft_vdprint_cs/ft_vdprint_hex_upper_cs.c \
-./ft_vdprint_cs/ft_vdprint_int_cs.c \
-./ft_vdprint_cs/ft_vdprint_percent_cs.c \
-./ft_vdprint_cs/ft_vdprint_pointer_cs.c \
-./ft_vdprint_cs/ft_vdprint_string_cs.c \
-./ft_vdprint_cs/ft_vdprint_uint_cs.c \
-./ft_vdprint_cs/generate_ul_hex_with_cs.c \
-./utils/pad_zero_str.c \
-./utils/repeat_print_fd.c \
-./utils/zero_pad_with_cs.c
+SRCS += \
+	./aligned_print/left_aligned_print.c \
+	./aligned_print/left_aligned_print_char.c \
+	./aligned_print/right_aligned_print.c \
+	./aligned_print/right_aligned_print_char.c \
+	./aligned_print/t_conv_aligned_print.c \
+	./aligned_print/t_conv_aligned_print_char.c \
+	./conversion_specification/check_conv_specification_format.c \
+	./conversion_specification/free_t_cs.c \
+	./conversion_specification/generate_cs.c \
+	./conversion_specification/get_cs_len.c \
+	./conversion_specification/is_conversion_specifier.c \
+	./conversion_specification/is_flag.c \
+	./conversion_specification/is_set_zero_precision.c \
+	./conversion_specification/new_t_cs.c \
+	./ft_printf/ft_printf.c \
+	./ft_vdprint_cs/ft_vdprint_char_cs.c \
+	./ft_vdprint_cs/ft_vdprint_cs.c \
+	./ft_vdprint_cs/ft_vdprint_decimal_cs.c \
+	./ft_vdprint_cs/ft_vdprint_hex_cs.c \
+	./ft_vdprint_cs/ft_vdprint_hex_upper_cs.c \
+	./ft_vdprint_cs/ft_vdprint_int_cs.c \
+	./ft_vdprint_cs/ft_vdprint_percent_cs.c \
+	./ft_vdprint_cs/ft_vdprint_pointer_cs.c \
+	./ft_vdprint_cs/ft_vdprint_string_cs.c \
+	./ft_vdprint_cs/ft_vdprint_uint_cs.c \
+	./ft_vdprint_cs/generate_ul_hex_with_cs.c \
+	./ft_vdprintf/ft_vdprintf.c \
+	./utils/pad_zero_str.c \
+	./utils/repeat_print_fd.c \
+	./utils/zero_pad_with_cs.c
 
 INCLUDES = \
+	./aligned_print/aligned_print.h \
 	./conversion_specification/conversion_specification.h \
 	./conversion_specification/conversion_specification_utils.h \
 	./ft_printf.h \
-	./Libft/libft.h \
-	./ft_vdprint_cs/ft_vdprint_cs.h \
 	./ft_vdprint_cs/_ft_vdprint_cs.h \
-	./aligned_print/aligned_print.h \
-	./utils/string_util.h \
+	./ft_vdprint_cs/ft_vdprint_cs.h \
+	./ft_vdprintf/ft_vdprintf.h \
+	./Libft/libft.h \
+	./utils/string_util.h
 
 OBJS = $(SRCS:.c=.o)
 DEPENDS = $(SRCS:.c=.d)
@@ -72,11 +73,14 @@ DEPENDS_BONUS = $(SRC_BONUS:.c=.d)
 
 CFLAGS += -MMD -MP
 INC_DIRS = \
-	conversion_specification \
-	ft_vdprint_cs \
-	utils \
+	. \
 	aligned_print \
+	conversion_specification \
+	ft_printf \
+	ft_vdprint_cs \
+	ft_vdprintf \
 	Libft \
+	utils \
 	bonus_files
 
 CFLAGS += $(addprefix -I, $(INC_DIRS))
@@ -86,7 +90,7 @@ ifeq ($(MAKECMDGOALS), debug)
 endif
 
 # all
-all: $(NAME)
+all: $(NAME) $(NAME_BONUS)
 
 -include $(DEPENDS)
 -include $(DEPENDS_BONUS)

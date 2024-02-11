@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:17:14 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 15:11:47 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:15:10 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include "aligned_print_bonus.h"
 #include "conversion_specification_utils_bonus.h"
 
-int	print_decimal_fd_with_cs(int fd, t_cs *cs, int value);
+int			print_decimal_fd_with_cs(int fd, t_cs *cs, int value);
+static char	*add_sign_with_cs(t_cs *cs, char *num_str);
 
 int	ft_vdprint_decimal_cs(int fd, t_cs *cs, va_list args)
 {
@@ -52,4 +53,20 @@ int	print_decimal_fd_with_cs(int fd, t_cs *cs, int value)
 	print_len = t_conv_aligned_print(fd, cs, joined_sign_str);
 	free(joined_sign_str);
 	return (print_len);
+}
+
+static char	*add_sign_with_cs(t_cs *cs, char *num_str)
+{
+	char	*joined_str;
+
+	joined_str = NULL;
+	if (num_str[0] == '-')
+		return (ft_strdup(num_str));
+	else if (cs->flag_plus != false)
+		return (ft_strjoin("+", num_str));
+	else if (cs->flag_space != false)
+		return (ft_strjoin(" ", num_str));
+	else
+		return (ft_strdup(num_str));
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 22:26:33 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 15:11:46 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 16:32:46 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "string_util.h"
 #include "libft.h"
 #include "_ft_vdprint_cs.h"
+#include "ft_printf.h"
 
 int	print_hex_fd_with_cs(int fd, t_cs *cs, unsigned int value);
 

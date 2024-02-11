@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:43:19 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 15:22:51 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 17:11:25 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,14 @@ static char	*gen_zero_pad_num_str(char *num_str, int min_num_len)
 	int		num_offset;
 
 	if (num_str[0] == '-')
+	{
 		num_offset = 1;
+		min_num_len -= 1;
+	}
 	else
 		num_offset = 0;
+	if (min_num_len < 0)
+		min_num_len = 0;
 	zero_pad_num_unsigned = pad_zero_str(
 			num_str + num_offset, min_num_len);
 	if (zero_pad_num_unsigned == NULL)

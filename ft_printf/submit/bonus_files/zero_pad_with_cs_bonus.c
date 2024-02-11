@@ -6,12 +6,17 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:43:19 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 15:10:01 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 17:10:25 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "conversion_specification_bonus.h"
 #include "string_util_bonus.h"
+#include "libft.h"
+#include <stdlib.h>
+#include <stddef.h>
+
+static char	*gen_zero_pad_num_str(char *num_str, int min_num_len);
 
 char	*zero_pad_with_cs(t_cs *cs, char *num_str)
 {
@@ -25,4 +30,32 @@ char	*zero_pad_with_cs(t_cs *cs, char *num_str)
 		&& cs->flag_minus == false)
 		pad_zero_min_width = cs->minimum_field_width;
 	return (gen_zero_pad_num_str(num_str, pad_zero_min_width));
+}
+
+static char	*gen_zero_pad_num_str(char *num_str, int min_num_len)
+{
+	char	*zero_pad_num;
+	char	*zero_pad_num_unsigned;
+	int		num_offset;
+
+	if (num_str[0] == '-')
+	{
+		num_offset = 1;
+		min_num_len -= 1;
+	}
+	else
+		num_offset = 0;
+	if (min_num_len < 0)
+		min_num_len = 0;
+	zero_pad_num_unsigned = pad_zero_str(
+			num_str + num_offset, min_num_len);
+	if (zero_pad_num_unsigned == NULL)
+		return (NULL);
+	if (num_str[0] != '-')
+		return (zero_pad_num_unsigned);
+	zero_pad_num = ft_strjoin("-", zero_pad_num_unsigned);
+	free(zero_pad_num_unsigned);
+	if (zero_pad_num == NULL)
+		return (NULL);
+	return (zero_pad_num);
 }

@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:08:49 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 15:15:50 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 16:35:53 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "libft.h"
-#include "ft_printf.h"
-#include <stdio.h>
+#include <unistd.h>
+#include "ft_vdprintf.h"
 
 int	ft_printf(const char *format, ...)
 {
@@ -21,7 +20,7 @@ int	ft_printf(const char *format, ...)
 	int		print_len;
 
 	va_start(ap, format);
-	print_len = ft_vdprintf(1, format, ap);
+	print_len = ft_vdprintf(STDOUT_FILENO, format, ap);
 	va_end(ap);
 	return (print_len);
 }

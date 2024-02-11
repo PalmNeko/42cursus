@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:01:34 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/08 23:52:00 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:35:35 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,5 @@
 # include <stdarg.h>
 
 int	ft_printf(const char *format, ...);
-int	check_printf_format(const char *format);
-int	ft_vdprintf(int fd, const char *format, va_list arg_ptr);
 
 #endif

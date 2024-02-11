@@ -16,10 +16,11 @@
 #include <unistd.h>
 #include "conversion_specification.h"
 #include "ft_vdprint_cs.h"
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	print_cs(int fd, const char **format, va_list arg_ptr);
 static int	print_until_char_fd(int fd, const char *str, char c);
+static int	check_printf_format(const char *format);
 
 int	ft_vdprintf(int fd, const char *format, va_list arg_ptr)
 {
@@ -68,7 +69,7 @@ static int	print_cs(int fd, const char **format, va_list arg_ptr)
 	return (print_len);
 }
 
-int	print_until_char_fd(int fd, const char *str, char c)
+static int	print_until_char_fd(int fd, const char *str, char c)
 {
 	size_t	len;
 
@@ -80,4 +81,23 @@ int	print_until_char_fd(int fd, const char *str, char c)
 	if (write(fd, str, len) < 0)
 		return (-1);
 	return ((int)len);
+}
+
+static int	check_printf_format(const char *format)
+{
+	char	*conv_specification;
+	int		tmp_len;
+
+	conv_specification = ft_strchr(format, '%');
+	while (conv_specification != NULL)
+	{
+		if (check_conv_specification_format(conv_specification) == 0)
+			return (0);
+		tmp_len = get_cs_len(conv_specification);
+		if (tmp_len < 0)
+			return (-1);
+		conv_specification += tmp_len;
+		conv_specification = ft_strchr(conv_specification, '%');
+	}
+	return (true);
 }
