@@ -6,12 +6,13 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:03:12 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/12 15:32:34 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:23:12 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
+#include <stdio.h>
 
 int	repeat_print_fd(int fd, const char *str, int repeat_cnt)
 {
