@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   right_aligned_print.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tookuyam <tookuyam@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:45:37 by tookuyam          #+#    #+#             */
-/*   Updated: 2023/11/09 15:27:10 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:43:14 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	right_aligned_print(int fd, const char *str, size_t min_len, int pad_zero)
 {
 	size_t	len;
 	char	*pad_str;
+	int		now_print_len;
 
 	len = ft_strlen(str);
 	if (len > INT_MAX || min_len > INT_MAX)
@@ -28,10 +29,15 @@ int	right_aligned_print(int fd, const char *str, size_t min_len, int pad_zero)
 	else
 		pad_str = " ";
 	if (len <= min_len)
-		len += repeat_print_fd(fd, pad_str, (int)(min_len - len));
+	{
+		now_print_len = repeat_print_fd(fd, pad_str, (int)(min_len - len));
+		if (now_print_len < 0)
+			return (-1);
+		len += now_print_len;
+	}
 	if (len > INT_MAX)
 		return (-1);
-	if (ft_putstr_fd(str, fd) < 0)
+	if (write(fd, str, len) < 0)
 		return (-1);
 	return (len);
 }

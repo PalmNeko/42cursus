@@ -6,7 +6,7 @@
 #    By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 16:10:34 by tookuyam          #+#    #+#              #
-#    Updated: 2024/02/11 17:15:25 by tookuyam         ###   ########.fr        #
+#    Updated: 2024/02/12 15:17:24 by tookuyam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,12 +97,14 @@ all: $(NAME)
 
 # make files
 $(NAME): $(LIBFT) $(OBJS)
+	$(RM) $(NAME)
 	cp $(LIBFT) $(NAME)
-	ar rcs $(NAME) $(filter %.o, $?)
+	ar rcs $(NAME) $(filter %.o, $^)
 
 $(NAME_BONUS): update_bonus $(LIBFT) $(OBJS_BONUS)
+	$(RM) $(NAME)
 	cp $(LIBFT) $(NAME)
-	ar rcs $(NAME) $(filter %.o, $?)
+	ar rcs $(NAME) $(filter %.o, $^)
 	date > bonus
 
 $(LIBFT):
