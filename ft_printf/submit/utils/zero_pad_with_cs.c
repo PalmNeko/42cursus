@@ -6,7 +6,7 @@
 /*   By: tookuyam <tookuyam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:43:19 by tookuyam          #+#    #+#             */
-/*   Updated: 2024/02/11 17:11:25 by tookuyam         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:31:00 by tookuyam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ char	*zero_pad_with_cs(t_cs *cs, char *num_str)
 	int		pad_zero_min_width;
 
 	pad_zero_min_width = 0;
-	if (cs->is_specified_precision != false)
+	if (cs->is_specified_precision == true)
 		pad_zero_min_width = cs->precision;
-	else if (cs->flag_zero != false
-		&& cs->is_specified_min_field_width != false
+	else if (cs->flag_zero == true
+		&& cs->is_specified_min_field_width == true
 		&& cs->flag_minus == false)
 		pad_zero_min_width = cs->minimum_field_width;
+	if (num_str[0] == '-' && cs->is_specified_precision != true)
+		pad_zero_min_width -= 1;
 	return (gen_zero_pad_num_str(num_str, pad_zero_min_width));
 }
 
@@ -39,10 +41,7 @@ static char	*gen_zero_pad_num_str(char *num_str, int min_num_len)
 	int		num_offset;
 
 	if (num_str[0] == '-')
-	{
 		num_offset = 1;
-		min_num_len -= 1;
-	}
 	else
 		num_offset = 0;
 	if (min_num_len < 0)
