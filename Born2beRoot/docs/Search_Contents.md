@@ -33,7 +33,9 @@
 	* MATE
 	* LXDE
 	* LXQt
-
+* キルスイッチ
+	`echo c > /proc/sysrq-trigger`
+* ネットワークの設定（NATなど）
 # コマンド
 
 * lsblk (ディスク構成を見る感じのやつ)
