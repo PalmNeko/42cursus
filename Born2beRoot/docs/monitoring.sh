@@ -17,7 +17,7 @@ MEMORY_USAGE_PERCENTAGE=$(printf "$MEMORY_RESULT_MB" | awk '/Mem/ { printf "%.2f
 
 # memory usage
 DISK_USAGE_REPORT_MB=$(df -TBM -t ext4 -t ext2 --total | tail -1)
-DISK_TOTAL_GB=$(echo $DISK_USAGE_REPORT_MB | awk '{ printf "%d", $3 / 1000}')
+DISK_TOTAL_GB=$(echo $DISK_USAGE_REPORT_MB | awk '{ printf "%d", $3 / 1024}')
 DISK_USAGE_MB=$(echo $DISK_USAGE_REPORT_MB | awk '{ printf "%d", $4 }')
 DISK_USAGE_PERCENTAGE=$(echo $DISK_USAGE_REPORT_MB | awk '{ printf "%d", $6 }')
 
