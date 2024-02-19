@@ -1,0 +1,12 @@
+# 42 CURSUS
+
+# Repositories - Common Core
+
+level 0
+* [Libt](https://github.com/PalmNeko/Libt)
+
+level 1
+* [ft_printf](https://github.com/PalmNeko/ft_printf)
+* [get_next_line](https://github.com/PalmNeko/get_next_line)
+* [Born2beRoot](https://github.com/PalmNeko/Born2beRoot)
+

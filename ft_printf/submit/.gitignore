@@ -1,9 +1,0 @@
-
-includes
-*.o
-*.out
-*.a
-*.d
-bonus
-*.bak
-printfTester/
