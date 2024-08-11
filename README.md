@@ -14,3 +14,6 @@ level 2
 * [so_long](https://github.com/PalmNeko/so_long)
 * [push_swap](https://github.com/PalmNeko/push_swap)
 * [pipex](https://github.com/PalmNeko/pipex)
+
+level 3
+* [philosophers](https://github.com/PalmNeko/philosophers)
